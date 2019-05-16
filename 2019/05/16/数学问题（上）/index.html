@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="算法笔记,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="双非电信专业在读，准备跨考计算机">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YXJ‘ Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本） 可以是用递归和迭代两种形式实现 书上采用的递归算法如下： 1234567int gcd(int a,int b)&amp;#123;    if(b==0)         return a;    else         return gcd(b,a%b);&amp;#125; 最小公倍数最小公倍数一般是在最求出最大公约数的情况">
+<meta name="keywords" content="算法笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学问题（上）">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/数学问题（上）/index.html">
 <meta property="og:site_name" content="YXJ‘ Blog">
-<meta property="og:description" content="双非电信专业在读，准备跨考计算机">
+<meta property="og:description" content="最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本） 可以是用递归和迭代两种形式实现 书上采用的递归算法如下： 1234567int gcd(int a,int b)&amp;#123;    if(b==0)         return a;    else         return gcd(b,a%b);&amp;#125; 最小公倍数最小公倍数一般是在最求出最大公约数的情况">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-16T14:10:55.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YXJ‘ Blog">
-<meta name="twitter:description" content="双非电信专业在读，准备跨考计算机">
+<meta name="twitter:title" content="数学问题（上）">
+<meta name="twitter:description" content="最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本） 可以是用递归和迭代两种形式实现 书上采用的递归算法如下： 1234567int gcd(int a,int b)&amp;#123;    if(b==0)         return a;    else         return gcd(b,a%b);&amp;#125; 最小公倍数最小公倍数一般是在最求出最大公约数的情况">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/数学问题（上）/">
 
 
 
 
 
-  <title>YXJ‘ Blog</title>
+  <title>数学问题（上） | YXJ‘ Blog</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,9 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,9 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/16/数学问题（上）/" itemprop="url">数学问题（上）</a></h1>
+          <h1 class="post-title" itemprop="name headline">数学问题（上）</h1>
         
 
         <div class="post-meta">
@@ -342,9 +341,7 @@
       
 
       
-        
-          
-            <h3 id="最大公约数与最小公倍数"><a href="#最大公约数与最小公倍数" class="headerlink" title="最大公约数与最小公倍数"></a>最大公约数与最小公倍数</h3><h4 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h4><p>一般是采用<strong>欧几里何算法</strong>实现的（证明过程参考书本）</p>
+        <h3 id="最大公约数与最小公倍数"><a href="#最大公约数与最小公倍数" class="headerlink" title="最大公约数与最小公倍数"></a>最大公约数与最小公倍数</h3><h4 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h4><p>一般是采用<strong>欧几里何算法</strong>实现的（证明过程参考书本）</p>
 <p>可以是用递归和迭代两种形式实现</p>
 <p>书上采用的递归算法如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>) </span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        <span class="keyword">return</span> gcd(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -361,8 +358,6 @@
 <p>代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">101</span>;  <span class="comment">//表长</span></span><br><span class="line"><span class="keyword">int</span> prime[maxn],pnum=<span class="number">0</span>;  <span class="comment">//存放素数的数组和统计素数的个数</span></span><br><span class="line"><span class="keyword">bool</span> p[maxn]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Find_Prime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;maxn;i++) <span class="comment">//注意从i=2开始</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i]==<span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">           prime[pnum++]=i;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=i+i;j&lt;maxn;j+=i)</span><br><span class="line">               p[j]=<span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -377,305 +372,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/算法笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YXJ">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YXJ‘ Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/16/算法笔记/" itemprop="url">算法笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T21:11:53+08:00">
-                2019-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/算法笔记/" rel="tag"># 算法笔记</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/16/算法笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/16/算法笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/05/16/算法笔记/" class="leancloud_visitors" data-flag-title="算法笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>算法笔记人称<strong>晴神宝典</strong>，是一本介绍算法和PAT的书，主要针对的是PAT考试和研究生复试的上机算法题，这里是我学习算法笔记的见证</p>
-<ol>
-<li><a href="/2019/05/16/数学问题（上）/">数学问题 （上）</a></li>
-<li>数学问题 （下）</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YXJ">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YXJ‘ Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/16/搭建博客/" itemprop="url"> 搭建博客 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T20:57:27+08:00">
-                2019-05-16
-              </time>
+              <a href="/2019/05/16/算法笔记/" rel="next" title="算法笔记">
+                <i class="fa fa-chevron-left"></i> 算法笔记
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/16/搭建博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/16/搭建博客/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/05/16/搭建博客/" class="leancloud_visitors" data-flag-title=" 搭建博客 ">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h3 id="HEXO"><a href="#HEXO" class="headerlink" title="HEXO"></a>HEXO</h3><p>在一个大佬的推荐下使用了hexo! </p>
-<p>hexo是一种静态的前端框架，是基于github为后端的，搭建过程其实较为简单，有兴趣的同学可以自行百度搭建，我把我搭建过程中的主要问题描述一下</p>
-<blockquote>
-<p>最大的问题就是我用了Nodejs的命令行和git的命令行分开执行的一些名利，导致在部署过程中没有Git的权限，大家可以通过变量设置将Node的权限交给git，从而实现通过git完成hexo的创建等一系列操作</p>
-</blockquote>
-<p>如果我有机会，我非常希望能够学习flask和angular搭建一个完整的web项目，虽然我知道难度很大，时间也不太允许，但是还有有一种憧憬和希望吧！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -685,153 +411,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/“开篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YXJ">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YXJ‘ Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/16/“开篇/" itemprop="url"> 开篇 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T20:44:47+08:00">
-                2019-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/16/“开篇/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/16/“开篇/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/05/16/“开篇/" class="leancloud_visitors" data-flag-title=" 开篇 ">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h3><p>搭建博客的目的主要是自己激励自己的一种方式罢了，但是如果你们能够有所收获的话，我感到十分开心！我会在博客记录我的一些代码和生活感悟！</p>
-<p>如果你们对此博客有什么意见，欢迎联系我！</p>
-<p>如果我们不认识，你却想和我成为朋友的话。也欢迎加我的qq:<strong>840178463</strong></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -839,6 +423,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -859,8 +450,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -921,6 +521,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大公约数与最小公倍数"><span class="nav-number">1.</span> <span class="nav-text">最大公约数与最小公倍数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最大公约数"><span class="nav-number">1.1.</span> <span class="nav-text">最大公约数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小公倍数"><span class="nav-number">1.2.</span> <span class="nav-text">最小公倍数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数"><span class="nav-number">2.</span> <span class="nav-text">素数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#素数的判断"><span class="nav-number">2.1.</span> <span class="nav-text">素数的判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#素数表的获取"><span class="nav-number">2.2.</span> <span class="nav-text">素数表的获取</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1048,6 +664,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
