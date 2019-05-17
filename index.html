@@ -289,7 +289,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-16T22:10:55+08:00">
+                2019-05-16
+              </time>
             
           </span>
 
@@ -326,6 +338,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  654
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
           
 
@@ -344,24 +387,18 @@
       
         
           
-            <h3 id="最大公约数与最小公倍数"><a href="#最大公约数与最小公倍数" class="headerlink" title="最大公约数与最小公倍数"></a>最大公约数与最小公倍数</h3><h4 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h4><p>一般是采用<strong>欧几里何算法</strong>实现的（证明过程参考书本）</p>
-<p>可以是用递归和迭代两种形式实现</p>
-<p>书上采用的递归算法如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>) </span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        <span class="keyword">return</span> gcd(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="最小公倍数"><a href="#最小公倍数" class="headerlink" title="最小公倍数"></a>最小公倍数</h4><p>最小公倍数一般是在最求出最大公约数的情况下求出：</p>
-<p>假设最大公约数为<strong>d</strong>，则有<strong>ab/d</strong>为最小公倍数，有时候为了防止溢出，我们也可以使用<strong>a/d*b</strong>的形式</p>
-<h3 id="素数"><a href="#素数" class="headerlink" title="素数"></a>素数</h3><h4 id="素数的判断"><a href="#素数的判断" class="headerlink" title="素数的判断"></a>素数的判断</h4><p>素数又可以称为质数，定义是除了1和它本身不能被任何数整除的数，特别注明：<strong>1既不是素数也不是合数</strong></p>
-<p>假设给定一个数n，我们将2到n-1进行判断是否能被n整除，出现一个即为非素数，易知该算法的复杂度为O（n），所以我们可以进行优化，假设n为合数，则可以整除k，证明可得k与n/k一定满足一个小与等于sqrt（n),当然这个是不超过其的最大整数，另一个一定大于等于.</p>
-<p>所以可以得到以下代码进行判断：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span> sqr=(<span class="keyword">int</span>)sqr(<span class="number">1.0</span>*n);  <span class="comment">//乘上一个1.0使其变成浮点数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=sqr;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>另一种较为简单的方法就是不开方，通过<strong>i*i</strong>进行判断，但是容易溢出</p>
-<h4 id="素数表的获取"><a href="#素数表的获取" class="headerlink" title="素数表的获取"></a>素数表的获取</h4><p>通过枚举的方法判断一个数是否是素数，其复杂度为O（n），而判断素数的复杂度是O(sqr n)，故总复杂度为O(n sqrn)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">101</span>;  <span class="comment">//表长</span></span><br><span class="line"><span class="keyword">int</span> prime[maxn],pnum=<span class="number">0</span>;  <span class="comment">//存放素数的数组和统计素数的个数</span></span><br><span class="line"><span class="keyword">bool</span> p[maxn]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Find_Prime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;maxn;i++)  <span class="comment">//不能写成i&lt;=maxn</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(isPrime(i))</span><br><span class="line">        &#123;</span><br><span class="line">            primer[pnum++]=i;</span><br><span class="line">            p[i]=<span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>帅选法获取素数是一种很优秀的算法，其算法复杂度为O（nloglogn），其本质就是如果其为素数就将其加上本身进行筛选，具体过程可以看书</p>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">101</span>;  <span class="comment">//表长</span></span><br><span class="line"><span class="keyword">int</span> prime[maxn],pnum=<span class="number">0</span>;  <span class="comment">//存放素数的数组和统计素数的个数</span></span><br><span class="line"><span class="keyword">bool</span> p[maxn]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Find_Prime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;maxn;i++) <span class="comment">//注意从i=2开始</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i]==<span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">           prime[pnum++]=i;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=i+i;j&lt;maxn;j+=i)</span><br><span class="line">               p[j]=<span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本）
+可以是用递归和迭代两种形式实现
+书上采用的递归算法如下：
+1234567int gcd(int a,int b)&#123;    if(b==0)         return a;    else         
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/16/数学问题（上）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -445,7 +482,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-16T22:13:04+08:00">
+                2019-05-16
+              </time>
             
           </span>
 
@@ -482,6 +531,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  65
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -500,13 +580,20 @@
       
         
           
-            <p>算法笔记人称<strong>晴神宝典</strong>，是一本介绍算法和PAT的书，主要针对的是PAT考试和研究生复试的上机算法题，这里是我学习算法笔记的见证</p>
-<ol>
-<li><a href="/2019/05/16/数学问题（上）/">数学问题 （上）</a></li>
-<li>数学问题 （下）</li>
-</ol>
+          算法笔记人称晴神宝典，是一本介绍算法和PAT的书，主要针对的是PAT考试和研究生复试的上机算法题，这里是我学习算法笔记的见证
+
+数学问题 （上）
+数学问题 （下）
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/16/算法笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -590,7 +677,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-16T21:00:10+08:00">
+                2019-05-16
+              </time>
             
           </span>
 
@@ -627,6 +726,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  206
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -645,14 +775,18 @@
       
         
           
-            <h3 id="HEXO"><a href="#HEXO" class="headerlink" title="HEXO"></a>HEXO</h3><p>在一个大佬的推荐下使用了hexo! </p>
-<p>hexo是一种静态的前端框架，是基于github为后端的，搭建过程其实较为简单，有兴趣的同学可以自行百度搭建，我把我搭建过程中的主要问题描述一下</p>
-<blockquote>
-<p>最大的问题就是我用了Nodejs的命令行和git的命令行分开执行的一些名利，导致在部署过程中没有Git的权限，大家可以通过变量设置将Node的权限交给git，从而实现通过git完成hexo的创建等一系列操作</p>
-</blockquote>
-<p>如果我有机会，我非常希望能够学习flask和angular搭建一个完整的web项目，虽然我知道难度很大，时间也不太允许，但是还有有一种憧憬和希望吧！</p>
+          HEXO在一个大佬的推荐下使用了hexo! 
+hexo是一种静态的前端框架，是基于github为后端的，搭建过程其实较为简单，有兴趣的同学可以自行百度搭建，我把我搭建过程中的主要问题描述一下
 
-          
+最大的问题就是我用了Nodejs的命令行和git的命令行分开执行的一些名利，导致在部署过程中没有Git的权
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/16/搭建博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -736,7 +870,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-16T20:48:45+08:00">
+                2019-05-16
+              </time>
             
           </span>
 
@@ -773,6 +919,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  110
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -791,11 +968,18 @@
       
         
           
-            <h3 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h3><p>搭建博客的目的主要是自己激励自己的一种方式罢了，但是如果你们能够有所收获的话，我感到十分开心！我会在博客记录我的一些代码和生活感悟！</p>
-<p>如果你们对此博客有什么意见，欢迎联系我！</p>
-<p>如果我们不认识，你却想和我成为朋友的话。也欢迎加我的qq:<strong>840178463</strong></p>
+          关于博客搭建博客的目的主要是自己激励自己的一种方式罢了，但是如果你们能够有所收获的话，我感到十分开心！我会在博客记录我的一些代码和生活感悟！
+如果你们对此博客有什么意见，欢迎联系我！
+如果我们不认识，你却想和我成为朋友的话。也欢迎加我的qq:840178463
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/16/“开篇/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -942,6 +1126,15 @@
   <span class="author" itemprop="copyrightHolder">YXJ</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1k</span>
+  
 </div>
 
 
@@ -953,6 +1146,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      你是来访的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位小伙伴
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问次数：
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
