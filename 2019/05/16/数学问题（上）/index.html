@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本） 可以是用递归和迭代两种形式实现 书上采用的递归算法如下： 1234567int gcd(int a,int b)&amp;#123;    if(b==0)         return a;    else         return gcd(b,a%b);&amp;#125; 最小公倍数最小公倍数一般是在最求出最大公约数的情况">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-16T14:10:55.103Z">
+<meta property="og:updated_time" content="2019-05-17T14:24:05.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数学问题（上）">
 <meta name="twitter:description" content="最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本） 可以是用递归和迭代两种形式实现 书上采用的递归算法如下： 1234567int gcd(int a,int b)&amp;#123;    if(b==0)         return a;    else         return gcd(b,a%b);&amp;#125; 最小公倍数最小公倍数一般是在最求出最大公约数的情况">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-16T22:10:55+08:00">
-                2019-05-16
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-17T22:24:05+08:00">
+                2019-05-17
               </time>
             
           </span>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  654
+                  947
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -405,6 +405,14 @@
 <p>帅选法获取素数是一种很优秀的算法，其算法复杂度为O（nloglogn），其本质就是如果其为素数就将其加上本身进行筛选，具体过程可以看书</p>
 <p>代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">101</span>;  <span class="comment">//表长</span></span><br><span class="line"><span class="keyword">int</span> prime[maxn],pnum=<span class="number">0</span>;  <span class="comment">//存放素数的数组和统计素数的个数</span></span><br><span class="line"><span class="keyword">bool</span> p[maxn]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Find_Prime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;maxn;i++) <span class="comment">//注意从i=2开始</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i]==<span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">           prime[pnum++]=i;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=i+i;j&lt;maxn;j+=i)</span><br><span class="line">               p[j]=<span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是打印100以内素数的完整代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cdstio.h&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">101</span>;  <span class="comment">//表长</span></span><br><span class="line"><span class="keyword">int</span> prime[maxn],pnum=<span class="number">0</span>;  <span class="comment">//存放素数的数组和统计素数的个数</span></span><br><span class="line"><span class="keyword">bool</span> p[maxn]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Find_Prime</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;maxn;i++) <span class="comment">//注意从i=2开始</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i]==<span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">           prime[pnum++]=i;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=i+i;j&lt;maxn;j+=i)</span><br><span class="line">               p[j]=<span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Find_Prime();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;pnum;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,prime[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="质因子的分解"><a href="#质因子的分解" class="headerlink" title="质因子的分解"></a>质因子的分解</h4><p>对于质因子可能出现多次的情况，我们定义一个结构体</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">fcator</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,cnt;  <span class="comment">//x为质因子，cnt代表这个数的个数</span></span><br><span class="line">&#125;fac[<span class="number">10</span>]；</span><br></pre></td></tr></table></figure>
+<p>可以证明得到<strong>可能存在一个或者不存在</strong>一个大于sqrt(n)的质因子，然后我们采取除余的方法进行求质因子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(n%prime[i]==<span class="number">0</span>) <span class="comment">//说明prime[i]是它的质因子</span></span><br><span class="line">&#123;</span><br><span class="line">    fac[num].x=prime[i];  <span class="comment">//记录该因子</span></span><br><span class="line">    fac[num].cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n%prime[i]==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        fac[num].cnt++;</span><br><span class="line">        n/=prime[i];</span><br><span class="line">    &#125;</span><br><span class="line">    num++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>如果n大于1则证明有质因子大于sqr(n)</strong>,我们对其进行处理</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(n!=<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    fac[num].x=n;</span><br><span class="line">    fac[num].cnt=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -579,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大公约数与最小公倍数"><span class="nav-number">1.</span> <span class="nav-text">最大公约数与最小公倍数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最大公约数"><span class="nav-number">1.1.</span> <span class="nav-text">最大公约数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小公倍数"><span class="nav-number">1.2.</span> <span class="nav-text">最小公倍数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数"><span class="nav-number">2.</span> <span class="nav-text">素数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#素数的判断"><span class="nav-number">2.1.</span> <span class="nav-text">素数的判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#素数表的获取"><span class="nav-number">2.2.</span> <span class="nav-text">素数表的获取</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大公约数与最小公倍数"><span class="nav-number">1.</span> <span class="nav-text">最大公约数与最小公倍数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最大公约数"><span class="nav-number">1.1.</span> <span class="nav-text">最大公约数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小公倍数"><span class="nav-number">1.2.</span> <span class="nav-text">最小公倍数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数"><span class="nav-number">2.</span> <span class="nav-text">素数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#素数的判断"><span class="nav-number">2.1.</span> <span class="nav-text">素数的判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#素数表的获取"><span class="nav-number">2.2.</span> <span class="nav-text">素数表的获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#质因子的分解"><span class="nav-number">2.3.</span> <span class="nav-text">质因子的分解</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -613,7 +621,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1k</span>
+    <span title="Site words total count">1.3k</span>
   
 </div>
 
