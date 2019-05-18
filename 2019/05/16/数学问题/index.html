@@ -82,14 +82,14 @@
 <meta name="description" content="最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本） 可以是用递归和迭代两种形式实现 书上采用的递归算法如下： 1234567int gcd(int a,int b)&amp;#123;    if(b==0)         return a;    else         return gcd(b,a%b);&amp;#125; 最小公倍数最小公倍数一般是在最求出最大公约数的情况">
 <meta name="keywords" content="算法笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数学问题（上）">
-<meta property="og:url" content="http://yoursite.com/2019/05/16/数学问题（上）/index.html">
+<meta property="og:title" content="数学问题">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/数学问题/index.html">
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本） 可以是用递归和迭代两种形式实现 书上采用的递归算法如下： 1234567int gcd(int a,int b)&amp;#123;    if(b==0)         return a;    else         return gcd(b,a%b);&amp;#125; 最小公倍数最小公倍数一般是在最求出最大公约数的情况">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-17T14:24:05.947Z">
+<meta property="og:updated_time" content="2019-05-18T06:57:38.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数学问题（上）">
+<meta name="twitter:title" content="数学问题">
 <meta name="twitter:description" content="最大公约数与最小公倍数最大公约数一般是采用欧几里何算法实现的（证明过程参考书本） 可以是用递归和迭代两种形式实现 书上采用的递归算法如下： 1234567int gcd(int a,int b)&amp;#123;    if(b==0)         return a;    else         return gcd(b,a%b);&amp;#125; 最小公倍数最小公倍数一般是在最求出最大公约数的情况">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/16/数学问题（上）/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/数学问题/">
 
 
 
 
 
-  <title>数学问题（上） | YXJ‘ Blog</title>
+  <title>数学问题 | YXJ‘ Blog</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/数学问题（上）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/数学问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YXJ">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数学问题（上）</h1>
+          <h1 class="post-title" itemprop="name headline">数学问题</h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-17T22:24:05+08:00">
-                2019-05-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-18T14:57:38+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -313,8 +313,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/16/数学问题（上）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/16/数学问题（上）/" itemprop="commentCount"></span>
+                <a href="/2019/05/16/数学问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/16/数学问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2019/05/16/数学问题（上）/" class="leancloud_visitors" data-flag-title="数学问题（上）">
+             <span id="/2019/05/16/数学问题/" class="leancloud_visitors" data-flag-title="数学问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  947
+                  1.5k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  7
                 </span>
               
             </div>
@@ -413,6 +413,13 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(n%prime[i]==<span class="number">0</span>) <span class="comment">//说明prime[i]是它的质因子</span></span><br><span class="line">&#123;</span><br><span class="line">    fac[num].x=prime[i];  <span class="comment">//记录该因子</span></span><br><span class="line">    fac[num].cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n%prime[i]==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        fac[num].cnt++;</span><br><span class="line">        n/=prime[i];</span><br><span class="line">    &#125;</span><br><span class="line">    num++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>如果n大于1则证明有质因子大于sqr(n)</strong>,我们对其进行处理</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(n!=<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    fac[num].x=n;</span><br><span class="line">    fac[num].cnt=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>质因数分解的综合运用可以参考PAT的甲级（advance level）1059</p>
+<p>算法笔记的算法如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100010</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_prime</span><span class="params">(<span class="keyword">int</span> n)</span>   <span class="comment">//判断n是否为素数,若为素数,则返回true</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span> sqr=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(<span class="number">1.0</span>*n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=sqr;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> prime[maxn],pnum=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Find_Prime</span><span class="params">()</span>           <span class="comment">//查找素数并存储</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;maxn;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(is_prime(i)==<span class="literal">true</span>)</span><br><span class="line">           prime[pnum++]=i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">factor</span>     //定义质因子的结构体</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,cnt;</span><br><span class="line">&#125;fac[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Find_Prime();</span><br><span class="line">    <span class="keyword">int</span> n,num=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"1=1"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d="</span>,n);</span><br><span class="line">        <span class="keyword">int</span> sqr=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(<span class="number">1.0</span>*n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;pnum&amp;&amp;prime[i]&lt;=sqr;i++)  <span class="comment">//根据质因子的结论</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(n%prime[i]==<span class="number">0</span>)   <span class="comment">//说明其为n的质因子</span></span><br><span class="line">            &#123;</span><br><span class="line">                fac[num].x=prime[i];</span><br><span class="line">                fac[num].cnt=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span>(n%prime[i]==<span class="number">0</span>)  <span class="comment">//计算出质因子的个数</span></span><br><span class="line">                &#123;</span><br><span class="line">                    fac[num].cnt++;</span><br><span class="line">                    n/=prime[i];</span><br><span class="line">                &#125;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(n==<span class="number">1</span>)  <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n!=<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            fac[num].x=n;</span><br><span class="line">            fac[num].cnt=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)  <span class="comment">//按照格式输出</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>)  </span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"*"</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,fac[i].x);</span><br><span class="line">            <span class="keyword">if</span>(fac[i].cnt&gt;<span class="number">1</span>)</span><br><span class="line">              <span class="built_in">printf</span>(<span class="string">"^%d"</span>,fac[i].cnt);</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;       </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>遗憾的是我通过平台提交之后最后一个检测点出现了错误，所以只拿到了23分，我也不知道问题出在哪里，我觉得这是完美的算法！</p>
+<p>柳神的算法则简单暴力一些，可以参考<a href="https://www.liuchuo.net/archives/2289" target="_blank" rel="noopener">此处</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prime(<span class="number">500000</span>,<span class="number">1</span>);</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;<span class="number">500000</span>;i++)</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;i*j&lt;<span class="number">500000</span>;j++)   <span class="comment">//暴力筛选打印500000以内的素数表</span></span><br><span class="line">          prime[i*j]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d="</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"1"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">bool</span> state=<span class="literal">false</span>;      <span class="comment">//定义了判断因子，如果有前一个就令判断因子为true，并打印*</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;n&gt;=<span class="number">2</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> cnt=<span class="number">0</span>,flag=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(prime[i]=<span class="number">1</span>&amp;&amp;n%i==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                cnt++;</span><br><span class="line">                n/=i;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(flag==<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(state==<span class="literal">true</span>)</span><br><span class="line">                  <span class="built_in">printf</span>(<span class="string">"*"</span>);</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d"</span>,i);</span><br><span class="line">                state=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(cnt&gt;<span class="number">1</span>)</span><br><span class="line">               <span class="built_in">printf</span>(<span class="string">"^%d"</span>,cnt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在提交柳神的代码之后发现全部正确，但是其内存使用确实较晴神的算法多了不少，但其代码较晴神简练不少</p>
 
       
     </div>
@@ -625,7 +632,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.5k</span>
+    <span title="Site words total count">2.1k</span>
   
 </div>
 
