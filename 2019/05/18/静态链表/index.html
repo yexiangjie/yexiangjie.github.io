@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术,">
+  <meta name="keywords" content="算法笔记,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="HEXO在一个大佬的推荐下使用了hexo!  hexo是一种静态的前端框架，是基于github为后端的，搭建过程其实较为简单，有兴趣的同学可以自行百度搭建，我把我搭建过程中的主要问题描述一下  最大的问题就是我用了Nodejs的命令行和git的命令行分开执行的一些名利，导致在部署过程中没有Git的权限，大家可以通过变量设置将Node的权限交给git，从而实现通过git完成hexo的创建等一系列操作">
-<meta name="keywords" content="技术">
+<meta name="description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 静态链表的实现原理是hasn散列,建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; 对静态链表的使用可以参考 PAT甲级">
+<meta name="keywords" content="算法笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" 搭建博客 ">
-<meta property="og:url" content="http://yoursite.com/2019/05/16/搭建博客/index.html">
+<meta property="og:title" content="静态链表">
+<meta property="og:url" content="http://yoursite.com/2019/05/18/静态链表/index.html">
 <meta property="og:site_name" content="YXJ‘ Blog">
-<meta property="og:description" content="HEXO在一个大佬的推荐下使用了hexo!  hexo是一种静态的前端框架，是基于github为后端的，搭建过程其实较为简单，有兴趣的同学可以自行百度搭建，我把我搭建过程中的主要问题描述一下  最大的问题就是我用了Nodejs的命令行和git的命令行分开执行的一些名利，导致在部署过程中没有Git的权限，大家可以通过变量设置将Node的权限交给git，从而实现通过git完成hexo的创建等一系列操作">
+<meta property="og:description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 静态链表的实现原理是hasn散列,建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; 对静态链表的使用可以参考 PAT甲级">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-17T14:26:45.055Z">
+<meta property="og:updated_time" content="2019-05-18T08:18:42.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" 搭建博客 ">
-<meta name="twitter:description" content="HEXO在一个大佬的推荐下使用了hexo!  hexo是一种静态的前端框架，是基于github为后端的，搭建过程其实较为简单，有兴趣的同学可以自行百度搭建，我把我搭建过程中的主要问题描述一下  最大的问题就是我用了Nodejs的命令行和git的命令行分开执行的一些名利，导致在部署过程中没有Git的权限，大家可以通过变量设置将Node的权限交给git，从而实现通过git完成hexo的创建等一系列操作">
+<meta name="twitter:title" content="静态链表">
+<meta name="twitter:description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 静态链表的实现原理是hasn散列,建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; 对静态链表的使用可以参考 PAT甲级">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/16/搭建博客/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/18/静态链表/">
 
 
 
 
 
-  <title> 搭建博客  | YXJ‘ Blog</title>
+  <title>静态链表 | YXJ‘ Blog</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/搭建博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/18/静态链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YXJ">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"> 搭建博客 </h1>
+          <h1 class="post-title" itemprop="name headline">静态链表</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T20:57:27+08:00">
-                2019-05-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-18T15:26:16+08:00">
+                2019-05-18
               </time>
             
 
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-17T22:26:45+08:00">
-                2019-05-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-18T16:18:42+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -313,8 +313,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/16/搭建博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/16/搭建博客/" itemprop="commentCount"></span>
+                <a href="/2019/05/18/静态链表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/18/静态链表/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2019/05/16/搭建博客/" class="leancloud_visitors" data-flag-title=" 搭建博客 ">
+             <span id="/2019/05/18/静态链表/" class="leancloud_visitors" data-flag-title="静态链表">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  206
+                  421
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -389,13 +389,11 @@
       
 
       
-        <h3 id="HEXO"><a href="#HEXO" class="headerlink" title="HEXO"></a>HEXO</h3><p>在一个大佬的推荐下使用了hexo! </p>
-<p>hexo是一种静态的前端框架，是基于github为后端的，搭建过程其实较为简单，有兴趣的同学可以自行百度搭建，我把我搭建过程中的主要问题描述一下</p>
-<blockquote>
-<p>最大的问题就是我用了Nodejs的命令行和git的命令行分开执行的一些名利，导致在部署过程中没有Git的权限，大家可以通过变量设置将Node的权限交给git，从而实现通过git完成hexo的创建等一系列操作</p>
-</blockquote>
-<p>如果我有机会，我非常希望能够学习flask和angular搭建一个完整的web项目，虽然我知道难度很大，时间也不太允许，但是还有有一种憧憬和希望吧！</p>
-
+        <h3 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h3><p>学过C语言的人基本都知道链表就是通过<strong>指针</strong>来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代</p>
+<p>静态链表的实现原理是<strong>hasn散列</strong>,建立结构体数组,数组的<u>下标</u>直接表示<u><strong>节点地址</strong></u>,</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">typename</span> data;</span><br><span class="line">    <span class="keyword">int</span> next;</span><br><span class="line">&#125;node[size];</span><br></pre></td></tr></table></figure>
+<p>对静态链表的使用可以参考 <strong>PAT甲级  1052</strong>来完成</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100005</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> address,data,next;</span><br><span class="line">    <span class="keyword">bool</span> flag;</span><br><span class="line">&#125;node[maxn];     <span class="comment">//定义静态链表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Node a,Node b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.flag==<span class="literal">false</span>||b.flag==<span class="literal">false</span>)</span><br><span class="line">       <span class="keyword">return</span> a.flag&gt;b.flag;     <span class="comment">//只要a和b中有一个无效节点即放置到后面</span></span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">       <span class="keyword">return</span> a.data&lt;b.data;     <span class="comment">//否则按照值的大小从小到大排序</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;maxn;i++)</span><br><span class="line">       node[i].flag=<span class="literal">false</span>;         <span class="comment">//初始化静态链表</span></span><br><span class="line">    <span class="keyword">int</span> n,begin,address;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;begin);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;address);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;node[address].data,&amp;node[address].next);</span><br><span class="line">        node[address].address=address;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>,p=begin;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="number">-1</span>)       </span><br><span class="line">    &#123;</span><br><span class="line">        node[p].flag=<span class="literal">true</span>;      <span class="comment">//遍历有效节点,也可以写成for(int i=begin;i!=-1;i=node[i].next)</span></span><br><span class="line">        cnt++; </span><br><span class="line">        p=node[p].next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt==<span class="number">0</span>)</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"0 -1"</span>);       <span class="comment">//特别判别,链表中无节点的情况</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      sort(node,node+maxn,cmp);  <span class="comment">//筛选有效节点,并排序</span></span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"%d %05d\n"</span>,cnt,node[<span class="number">0</span>].address);</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cnt;i++)</span><br><span class="line">      &#123;   </span><br><span class="line">          <span class="keyword">if</span>(i!=cnt<span class="number">-1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d %d %05d\n"</span>,</span><br><span class="line">                   node[i].address,node[i].data,node[i+<span class="number">1</span>].address); </span><br><span class="line">          <span class="comment">//注意是i+1的address,而不是i的next</span></span><br><span class="line">          <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d %d -1"</span>,node[i].address,node[i].data);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -412,7 +410,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/技术/" <i class="fa fa-tag"> 技术</a>
+            <a href="/tags/算法笔记/" <i class="fa fa-tag"> 算法笔记</a>
           
         </div>
       
@@ -425,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/16/“开篇/" rel="next" title=" 开篇 ">
-                <i class="fa fa-chevron-left"></i>  开篇 
+              <a href="/2019/05/17/python/" rel="next" title="python">
+                <i class="fa fa-chevron-left"></i> python
               </a>
             
           </div>
@@ -434,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/16/算法笔记/" rel="prev" title="算法笔记">
-                算法笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HEXO"><span class="nav-number">1.</span> <span class="nav-text">HEXO</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态链表"><span class="nav-number">1.</span> <span class="nav-text">静态链表</span></a></li></ol></div>
             
 
           </div>
