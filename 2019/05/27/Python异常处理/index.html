@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="字符串基础字符串可以通过‘  ‘,”  “,甚至是’’’  ‘’’的方式进行包括,来表明这是字符串,而三种表示方法没有什么本质区别 同时python的字符串当然支持转义字符,可以参考C语言,无本质区别 字符串的常用操作切片,遍历和索引是对字符串的基本操作 1234567891011121314name = &apos;jason&apos;name[0]&apos;j&apos;name[1:3]&apos;as&apos;for char in name">
+<meta name="description" content="异常处理时一门语言中都有的,但是一般着重语法学习是并不会特别强调这个概念,但是在工程运用中异常处理就显得比较重要了! 错误和异常一般来说程序中的错误包括两种,一种是语法错误,另一种就是异常,语法错误一般是无法通过编译和运行的,而异常则是多指在程序运行过程中出现的错误,并抛出异常 实例代码如下 123456789101112131410 / 0Traceback (most recent call">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python中的字符串">
-<meta property="og:url" content="http://yoursite.com/2019/05/22/python中的字符串/index.html">
+<meta property="og:title" content="Python异常处理">
+<meta property="og:url" content="http://yoursite.com/2019/05/27/Python异常处理/index.html">
 <meta property="og:site_name" content="YXJ‘ Blog">
-<meta property="og:description" content="字符串基础字符串可以通过‘  ‘,”  “,甚至是’’’  ‘’’的方式进行包括,来表明这是字符串,而三种表示方法没有什么本质区别 同时python的字符串当然支持转义字符,可以参考C语言,无本质区别 字符串的常用操作切片,遍历和索引是对字符串的基本操作 1234567891011121314name = &apos;jason&apos;name[0]&apos;j&apos;name[1:3]&apos;as&apos;for char in name">
+<meta property="og:description" content="异常处理时一门语言中都有的,但是一般着重语法学习是并不会特别强调这个概念,但是在工程运用中异常处理就显得比较重要了! 错误和异常一般来说程序中的错误包括两种,一种是语法错误,另一种就是异常,语法错误一般是无法通过编译和运行的,而异常则是多指在程序运行过程中出现的错误,并抛出异常 实例代码如下 123456789101112131410 / 0Traceback (most recent call">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T06:33:01.966Z">
+<meta property="og:updated_time" content="2019-05-27T10:56:24.451Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中的字符串">
-<meta name="twitter:description" content="字符串基础字符串可以通过‘  ‘,”  “,甚至是’’’  ‘’’的方式进行包括,来表明这是字符串,而三种表示方法没有什么本质区别 同时python的字符串当然支持转义字符,可以参考C语言,无本质区别 字符串的常用操作切片,遍历和索引是对字符串的基本操作 1234567891011121314name = &apos;jason&apos;name[0]&apos;j&apos;name[1:3]&apos;as&apos;for char in name">
+<meta name="twitter:title" content="Python异常处理">
+<meta name="twitter:description" content="异常处理时一门语言中都有的,但是一般着重语法学习是并不会特别强调这个概念,但是在工程运用中异常处理就显得比较重要了! 错误和异常一般来说程序中的错误包括两种,一种是语法错误,另一种就是异常,语法错误一般是无法通过编译和运行的,而异常则是多指在程序运行过程中出现的错误,并抛出异常 实例代码如下 123456789101112131410 / 0Traceback (most recent call">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/22/python中的字符串/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/27/Python异常处理/">
 
 
 
 
 
-  <title>python中的字符串 | YXJ‘ Blog</title>
+  <title>Python异常处理 | YXJ‘ Blog</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/python中的字符串/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/Python异常处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YXJ">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python中的字符串</h1>
+          <h1 class="post-title" itemprop="name headline">Python异常处理</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-22T14:11:42+08:00">
-                2019-05-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T18:17:30+08:00">
+                2019-05-27
               </time>
             
 
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-22T14:33:01+08:00">
-                2019-05-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-27T18:56:24+08:00">
+                2019-05-27
               </time>
             
           </span>
@@ -313,8 +313,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/22/python中的字符串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/22/python中的字符串/" itemprop="commentCount"></span>
+                <a href="/2019/05/27/Python异常处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/27/Python异常处理/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2019/05/22/python中的字符串/" class="leancloud_visitors" data-flag-title="python中的字符串">
+             <span id="/2019/05/27/Python异常处理/" class="leancloud_visitors" data-flag-title="Python异常处理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  306
+                  1.1k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -389,18 +389,31 @@
       
 
       
-        <h4 id="字符串基础"><a href="#字符串基础" class="headerlink" title="字符串基础"></a>字符串基础</h4><p>字符串可以通过<strong>‘  ‘,”  “,甚至是’’’  ‘’’</strong>的方式进行包括,来表明这是字符串,而三种表示方法没有什么本质区别</p>
-<p>同时python的字符串当然支持转义字符,可以参考C语言,无本质区别</p>
-<h4 id="字符串的常用操作"><a href="#字符串的常用操作" class="headerlink" title="字符串的常用操作"></a>字符串的常用操作</h4><p><strong>切片,遍历和索引</strong>是对字符串的基本操作</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">'jason'</span></span><br><span class="line">name[<span class="number">0</span>]</span><br><span class="line"><span class="string">'j'</span></span><br><span class="line">name[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line"><span class="string">'as'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> name:</span><br><span class="line">    print(char)   </span><br><span class="line">j</span><br><span class="line">a</span><br><span class="line">s</span><br><span class="line">o</span><br><span class="line">n</span><br></pre></td></tr></table></figure>
-<p><strong>python中的字符串不可变</strong> ,改变字符串只能通过创建新的字符串来完成</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'H'</span> + s[<span class="number">1</span>:]</span><br><span class="line">s = s.replace(<span class="string">'h'</span>, <span class="string">'H'</span>)</span><br></pre></td></tr></table></figure>
-<p>第一种方法，是直接用大写的’H’，通过加号’+’操作符，与原与原字符串切片操作的子字符串拼接而成新的字符串。</p>
-<p>第二种方法，是直接扫描原字符串，把小写的’h’替换成大写的’H’,创建新的字符串</p>
-<h4 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">100000</span>):</span><br><span class="line">    s += str(n)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">l = []</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">100000</span>):</span><br><span class="line">    l.append(str(n))</span><br><span class="line">l = <span class="string">' '</span>.join(l)</span><br></pre></td></tr></table></figure>
-<p><strong>split函数切片的操作</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">query_data</span><span class="params">(namespace, table)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    given namespace and table, query database to get corresponding</span></span><br><span class="line"><span class="string">    data         </span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">path = <span class="string">'hive://ads/training_table'</span></span><br><span class="line">namespace = path.split(<span class="string">'//'</span>)[<span class="number">1</span>].split(<span class="string">'/'</span>)[<span class="number">0</span>] <span class="comment"># 返回'ads'</span></span><br><span class="line">table = path.split(<span class="string">'//'</span>)[<span class="number">1</span>].split(<span class="string">'/'</span>)[<span class="number">1</span>] <span class="comment"># 返回 'training_table'</span></span><br><span class="line">data = query_data(namespace, table)</span><br></pre></td></tr></table></figure>
+        <p>异常处理时一门语言中都有的,但是一般着重语法学习是并不会特别强调这个概念,但是在工程运用中异常处理就显得比较重要了!</p>
+<h3 id="错误和异常"><a href="#错误和异常" class="headerlink" title="错误和异常"></a>错误和异常</h3><p>一般来说程序中的错误包括两种,一种是语法错误,另一种就是<strong>异常</strong>,语法错误一般是无法通过编译和运行的,而异常则是多指在程序运行过程中出现的错误,并抛出异常</p>
+<p>实例代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> / <span class="number">0</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ZeroDivisionError: integer division <span class="keyword">or</span> modulo by zero</span><br><span class="line"></span><br><span class="line">order * <span class="number">2</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">NameError: name <span class="string">'order'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> + [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">TypeError: unsupported operand type(s) <span class="keyword">for</span> +: <span class="string">'int'</span> <span class="keyword">and</span> <span class="string">'list'</span></span><br></pre></td></tr></table></figure>
+<p>于是，当程序运行到这些地方时，就抛出了异常，并且终止运行。例子中的ZeroDivisionError ,NameError和TypeError就是常见的错误,更多的错误可以参考<a href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions" target="_blank" rel="noopener">官方文档</a>.</p>
+<h3 id="如何处理异常"><a href="#如何处理异常" class="headerlink" title="如何处理异常"></a>如何处理异常</h3><p>通常是采用try  except语句来完成的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    s = input(<span class="string">'please enter two numbers separated by comma: '</span>)</span><br><span class="line">    num1 = int(s.split(<span class="string">','</span>)[<span class="number">0</span>].strip())</span><br><span class="line">    num2 = int(s.split(<span class="string">','</span>)[<span class="number">1</span>].strip())</span><br><span class="line">    ... </span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'Value Error: &#123;&#125;'</span>.format(err))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'continue'</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>这里我们默认用户输入的是两个整形数(input输入类型是字符串类型,通过int强行转化成整型),如果输入其他类型的数据(例如a),就会抛出异常</p>
+<p>由于程序抛出的异常类型是 ValueError，和 except block所 catch 的异常类型相匹配，所以 except block便会执行最终输出Value Error: invalid  literal for int() with base 10:’a’,并打印continue.</p>
+<p>当然,如果我们只输入1,程序机会抛出<strong>IndexError</strong>,就与之前的ValueError不匹配,解决方法我们当然可以在ValueError后面加上IndexError</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    s = input(<span class="string">'please enter two numbers separated by comma: '</span>)</span><br><span class="line">    num1 = int(s.split(<span class="string">','</span>)[<span class="number">0</span>].strip())</span><br><span class="line">    num2 = int(s.split(<span class="string">','</span>)[<span class="number">1</span>].strip())</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">except</span> (ValueError, IndexError) <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'Error: &#123;&#125;'</span>.format(err))</span><br><span class="line">    </span><br><span class="line">print(<span class="string">'continue'</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>当然,我们不知道的报错可能很多,所以一种通用的方法就是加入except  Exception(是所有非系统异常的基类)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    s = input(<span class="string">'please enter two numbers separated by comma: '</span>)</span><br><span class="line">    num1 = int(s.split(<span class="string">','</span>)[<span class="number">0</span>].strip())</span><br><span class="line">    num2 = int(s.split(<span class="string">','</span>)[<span class="number">1</span>].strip())</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'Value Error: &#123;&#125;'</span>.format(err))</span><br><span class="line"><span class="keyword">except</span> IndexError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'Index Error: &#123;&#125;'</span>.format(err))</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'Other error: &#123;&#125;'</span>.format(err))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'continue'</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>需要注意的是except block<strong>只会执行一次</strong>,这也就是为什么要把Exception放到最后,他会匹配到最先的except block并执行.</p>
+<p><strong>finally</strong>函数也会与try,except函数一起应用,其函数的意思是无论发生什么都会执行的语句,</p>
+<p>常见的应用就是文件的读写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'file.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line">    .... <span class="comment"># some data processing</span></span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'OS error: &#123;&#125;'</span>.format(err))</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'Unexpected error:'</span>, sys.exc_info()[<span class="number">0</span>])</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<p>值得一提的是，对于文件的读取，也常常使用 <strong>with open</strong>函数,它会在最后自动关闭文件,让语句更简洁</p>
+<h3 id="用户自定义异常"><a href="#用户自定义异常" class="headerlink" title="用户自定义异常"></a>用户自定义异常</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInputError</span><span class="params">(Exception)</span>:</span></span><br><span class="line">    <span class="string">"""Exception raised when there're errors in input"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, value)</span>:</span> <span class="comment"># 自定义异常类型的初始化</span></span><br><span class="line">        self.value = value</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span> <span class="comment"># 自定义异常类型的 string 表达形式</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="string">"&#123;&#125; is invalid input"</span>.format(repr(self.value)))</span><br><span class="line">    </span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> MyInputError(<span class="number">1</span>) <span class="comment"># 抛出 MyInputError 这个异常</span></span><br><span class="line"><span class="keyword">except</span> MyInputError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'error: &#123;&#125;'</span>.format(err))</span><br></pre></td></tr></table></figure>
+<p>类继承与基类exception</p>
+<p>一般来说系统给的异常能够满足使用,顾不是重点</p>
+<h3 id="异常的使用场景和注意点"><a href="#异常的使用场景和注意点" class="headerlink" title="异常的使用场景和注意点"></a>异常的使用场景和注意点</h3><p>大型社交网站的后台，需要针对用户发送的请求返回相应记录。用户用户记录往往储存在 key-value 结构的数据库中,每次有请求过来后，我们拿到用户的 ID，并用 ID 查询数据库中此人的记录，就能返回相应的结果.</p>
+<p>在 json.loads() 函数中，输入的字符串如果不符合其规范，那么便无法解码，就会抛出异常，因此加上异常处理就很必要</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    data = json.loads(raw_data)</span><br><span class="line">    ....</span><br><span class="line"><span class="keyword">except</span> JSONDecodeError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">'JSONDecodeError: &#123;&#125;'</span>.format(err))</span><br></pre></td></tr></table></figure>
+<p>当然,我们切忌不可以<strong>滥用异常</strong>处理,例如判断键值是否在字典中,一般是采用if .. in ..:这样较为合理,否则容易造成代码冗长且不易阅读.</p>
 
       
     </div>
@@ -431,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/21/The-Best-Ranking/" rel="next" title="The Best Ranking">
-                <i class="fa fa-chevron-left"></i> The Best Ranking
+              <a href="/2019/05/26/树的遍历/" rel="next" title="树的遍历">
+                <i class="fa fa-chevron-left"></i> 树的遍历
               </a>
             
           </div>
@@ -440,10 +453,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/24/二叉树的遍历/" rel="prev" title="二叉树的遍历">
-                二叉树的遍历 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -579,7 +588,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串基础"><span class="nav-number">1.</span> <span class="nav-text">字符串基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的常用操作"><span class="nav-number">2.</span> <span class="nav-text">字符串的常用操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的拼接"><span class="nav-number">3.</span> <span class="nav-text">字符串的拼接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误和异常"><span class="nav-number">1.</span> <span class="nav-text">错误和异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何处理异常"><span class="nav-number">2.</span> <span class="nav-text">如何处理异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户自定义异常"><span class="nav-number">3.</span> <span class="nav-text">用户自定义异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常的使用场景和注意点"><span class="nav-number">4.</span> <span class="nav-text">异常的使用场景和注意点</span></a></li></ol></div>
             
 
           </div>
