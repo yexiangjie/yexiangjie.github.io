@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="二叉树的遍历学过数据结构都知道二叉树的遍历有四种情况,分别对应的其实是两种遍历BFS(广度优先搜索,Breadth First Search)和DFS(深度优先) 其中前序(preorder)中序(inorder)和后序(postorder)为DFS 而层序则为BFS 三种次序的遍历一般使用递归的方式进行遍历,而次序正是遍历与打印之间的次序关系  前序遍历为   根  左子树  右子树 中序遍历为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-28T05:07:49.694Z">
+<meta property="og:updated_time" content="2019-06-02T05:26:59.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二叉树的遍历">
 <meta name="twitter:description" content="二叉树的遍历学过数据结构都知道二叉树的遍历有四种情况,分别对应的其实是两种遍历BFS(广度优先搜索,Breadth First Search)和DFS(深度优先) 其中前序(preorder)中序(inorder)和后序(postorder)为DFS 而层序则为BFS 三种次序的遍历一般使用递归的方式进行遍历,而次序正是遍历与打印之间的次序关系  前序遍历为   根  左子树  右子树 中序遍历为">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-28T13:07:49+08:00">
-                2019-05-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-02T13:26:59+08:00">
+                2019-06-02
               </time>
             
           </span>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  2.5k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  11
                 </span>
               
             </div>
@@ -422,6 +422,16 @@
 <li>stoi函数将字符串转化为整数</li>
 <li>对每个左右孩子都进行标记,然后就可以寻找根节点</li>
 </ul>
+<h3 id="二叉树搜索树-排序二叉树-的实例"><a href="#二叉树搜索树-排序二叉树-的实例" class="headerlink" title="二叉树搜索树(排序二叉树)的实例"></a>二叉树搜索树(排序二叉树)的实例</h3><p>二叉树搜索树是一种特殊的二叉树,其左子树的值小于根节点,右子树的值大于根节点,所以其<strong>中序遍历的结果应该是从小到大排序的</strong>,</p>
+<p>排序二叉树的实例参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805367987355648" target="_blank" rel="noopener">PAT1099</a>,题目的大意是给出一个二叉树,然后以二叉搜索树的形式将值插入二叉树,之后对二叉树进行层序遍历并输出,</p>
+<p>依旧可以通过index和level来标记二叉树的节点,排序后即为二叉树的层序遍历结果</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data,l,r,index,level;</span><br><span class="line">&#125;a[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,cnt,b[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.level!=b.level)  <span class="keyword">return</span> a.level&lt;b.level;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> a.index&lt;b.index;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> root,<span class="keyword">int</span> index,<span class="keyword">int</span> level)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a[root].l==<span class="number">-1</span>&amp;&amp;a[root].r==<span class="number">-1</span>)</span><br><span class="line">      a[root]=&#123;b[cnt++],a[root].l,a[root].r,index,level&#125;;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[root].l!=<span class="number">-1</span>)</span><br><span class="line">           dfs(a[root].l,<span class="number">2</span>*index+<span class="number">1</span>,level+<span class="number">1</span>);</span><br><span class="line">        a[root]=&#123;b[cnt++],a[root].l,a[root].r,index,level&#125;;             <span class="comment">//将排序过的数据按照中序遍历进入二叉树</span></span><br><span class="line">        <span class="keyword">if</span>(a[root].r!=<span class="number">-1</span>)</span><br><span class="line">           dfs(a[root].r,<span class="number">2</span>*index+<span class="number">2</span>,level+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;a[i].l&gt;&gt;a[i].r;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;b[i];</span><br><span class="line">    sort(b,b+n);                      <span class="comment">//对数据进行从小到大排序</span></span><br><span class="line">    dfs(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    sort(a,a+n,cmp);                  <span class="comment">//按照层序标号进行排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>)</span><br><span class="line">           <span class="built_in">cout</span>&lt;&lt;a[i].data;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">           <span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;a[i].data;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本题目的求解注意</p>
+<ul>
+<li>用结构体a来存储二叉树的节点,b来存储二叉树的数据</li>
+<li><strong>利用二叉搜索树的特点,即中序遍历即是将数据从小到大进行排序,故可以先将数据进行排序,之后以中序遍历的方式直接插入二叉树</strong></li>
+<li>层序遍历的标号即排序方式(之前的题目已有此种技巧)</li>
+</ul>
 
       
     </div>
@@ -452,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/22/python中的字符串/" rel="next" title="python中的字符串">
-                <i class="fa fa-chevron-left"></i> python中的字符串
+              <a href="/2019/05/22/python中的字符串/" rel="next" title="Python中的字符串">
+                <i class="fa fa-chevron-left"></i> Python中的字符串
               </a>
             
           </div>
@@ -600,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">1.</span> <span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已知先序和中序构造二叉树"><span class="nav-number">2.</span> <span class="nav-text">已知先序和中序构造二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树遍历实例"><span class="nav-number">3.</span> <span class="nav-text">二叉树遍历实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树遍历转换"><span class="nav-number">3.1.</span> <span class="nav-text">二叉树遍历转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用栈来模拟二叉树的遍历"><span class="nav-number">3.2.</span> <span class="nav-text">用栈来模拟二叉树的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的翻转"><span class="nav-number">3.3.</span> <span class="nav-text">二叉树的翻转</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">1.</span> <span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已知先序和中序构造二叉树"><span class="nav-number">2.</span> <span class="nav-text">已知先序和中序构造二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树遍历实例"><span class="nav-number">3.</span> <span class="nav-text">二叉树遍历实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树遍历转换"><span class="nav-number">3.1.</span> <span class="nav-text">二叉树遍历转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用栈来模拟二叉树的遍历"><span class="nav-number">3.2.</span> <span class="nav-text">用栈来模拟二叉树的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的翻转"><span class="nav-number">3.3.</span> <span class="nav-text">二叉树的翻转</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树搜索树-排序二叉树-的实例"><span class="nav-number">4.</span> <span class="nav-text">二叉树搜索树(排序二叉树)的实例</span></a></li></ol></div>
             
 
           </div>
@@ -634,7 +644,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">11.5k</span>
+    <span title="Site words total count">12k</span>
   
 </div>
 
