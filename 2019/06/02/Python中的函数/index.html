@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="函数基础学过编程的人都知道函数对一种语言来说的重要性不言而喻,函数一般是实现某一功能的一段代码,写好后即可重复使用, 下面是一个python函数的实例 123def my_fun(message):    print(&apos;Got a message:&amp;#123;&amp;#125;&apos;.format(message))my_fun(&apos;hello world&apos;)  def是函数声明 my_fun是函数名 括号里">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-02T07:24:27.785Z">
+<meta property="og:updated_time" content="2019-06-03T11:55:40.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python中的函数">
 <meta name="twitter:description" content="函数基础学过编程的人都知道函数对一种语言来说的重要性不言而喻,函数一般是实现某一功能的一段代码,写好后即可重复使用, 下面是一个python函数的实例 123def my_fun(message):    print(&apos;Got a message:&amp;#123;&amp;#125;&apos;.format(message))my_fun(&apos;hello world&apos;)  def是函数声明 my_fun是函数名 括号里">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-02T15:24:27+08:00">
-                2019-06-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-03T19:55:40+08:00">
+                2019-06-03
               </time>
             
           </span>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  2.2k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  8
                 </span>
               
             </div>
@@ -426,7 +426,40 @@
 <p>eg:计算一个数的n次幂</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nth_power</span><span class="params">(exponent)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">exponent_of</span><span class="params">(base)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> base ** exponent</span><br><span class="line">    <span class="keyword">return</span> exponent_of <span class="comment"># 返回值是 exponent_of 函数</span></span><br><span class="line"></span><br><span class="line">square = nth_power(<span class="number">2</span>) <span class="comment"># 计算一个数的平方</span></span><br><span class="line">cube = nth_power(<span class="number">3</span>) <span class="comment"># 计算一个数的立方 </span></span><br><span class="line">square</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">&lt;function __main__.nth_power.&lt;locals&gt;.exponent(base)&gt;</span><br><span class="line"></span><br><span class="line">cube</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">&lt;function __main__.nth_power.&lt;locals&gt;.exponent(base)&gt;</span><br><span class="line"></span><br><span class="line">print(square(<span class="number">2</span>))  <span class="comment"># 计算 2 的平方</span></span><br><span class="line">print(cube(<span class="number">2</span>)) <span class="comment"># 计算 2 的立方</span></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="number">4</span> <span class="comment"># 2^2</span></span><br><span class="line"><span class="number">8</span> <span class="comment"># 2^3</span></span><br></pre></td></tr></table></figure>
 <p>闭包是让代码更加简洁的一种方式,其常常与后面要学的<strong>装饰器</strong>一起使用</p>
-
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><h4 id="匿名函数基础"><a href="#匿名函数基础" class="headerlink" title="匿名函数基础"></a>匿名函数基础</h4><p>匿名函数的形式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lambda</span> argument1,argument2....:expression  <span class="comment">#argument代表参数,expression代表表达式</span></span><br><span class="line"></span><br><span class="line">square=<span class="keyword">lambda</span> x:x**<span class="number">2</span></span><br><span class="line">square(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>lambda是一个<strong>表达式</strong>,意味着是用一系列的公式去表达一个东西</p>
+<p>下面展示一些lambda函数可以做到,但是常规函数却做不到的地方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[(<span class="keyword">lambda</span> x:x*x)(x)<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]  <span class="comment">#作用于列表内部</span></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">16</span>,<span class="number">25</span>,<span class="number">36</span>,<span class="number">49</span>,<span class="number">64</span>,<span class="number">81</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#某些函数的参数</span></span><br><span class="line">l = [(<span class="number">1</span>, <span class="number">20</span>), (<span class="number">3</span>, <span class="number">0</span>), (<span class="number">9</span>, <span class="number">10</span>), (<span class="number">2</span>, <span class="number">-1</span>)]</span><br><span class="line">l.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>]) <span class="comment"># 按列表中元祖的第二个元素排序</span></span><br><span class="line">print(l)</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">[(<span class="number">2</span>, <span class="number">-1</span>), (<span class="number">3</span>, <span class="number">0</span>), (<span class="number">9</span>, <span class="number">10</span>), (<span class="number">1</span>, <span class="number">20</span>)]</span><br></pre></td></tr></table></figure>
+<p>lambda函数只有一行简单的表达式,<strong>不能扩展成代码块</strong>这也是该函数设计的本意吧</p>
+<h4 id="为什么要使用匿名函数"><a href="#为什么要使用匿名函数" class="headerlink" title="为什么要使用匿名函数"></a>为什么要使用匿名函数</h4><p>通常有以下两个目的</p>
+<ul>
+<li>减少代码的重复性</li>
+<li>模块化代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对一个列表里的所有元素进行平方操作</span></span><br><span class="line">squared=map(<span class="keyword">lambda</span> x:x**<span class="number">2</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"><span class="comment">#map函数会在后文中解释</span></span><br></pre></td></tr></table></figure>
+<p>是代码更简洁:例如在python的tkinter GUI中,实现创建一个按钮,每当用户点击它就打印一段文字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#利用lambda函数</span></span><br><span class="line"><span class="keyword">from</span> tinkter <span class="keyword">import</span> buttom,mainloop</span><br><span class="line">button=Button(</span><br><span class="line">     text=<span class="string">'this is a bottom'</span>,</span><br><span class="line">     command=<span class="keyword">lambda</span>:print(<span class="string">'being pressed'</span>)  <span class="comment">#点击调用lambda函数</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">button.pack()</span><br><span class="line">mainloop()</span><br></pre></td></tr></table></figure>
+<p>而常规的def函数则会麻烦不少</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> Button, mainloop</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_message</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'being pressed'</span>)</span><br><span class="line"></span><br><span class="line">button = Button(</span><br><span class="line">    text=<span class="string">'This is a button'</span>,</span><br><span class="line">    command=print_message) <span class="comment"># 点击时调用 lambda 函数</span></span><br><span class="line">button.pack()</span><br><span class="line">mainloop()</span><br></pre></td></tr></table></figure>
+<h3 id="python的函数式编程"><a href="#python的函数式编程" class="headerlink" title="python的函数式编程"></a>python的函数式编程</h3><p>所谓的函数式编程是指代码中的每一块<strong>都是不可变的(immutable),都由纯函数(pure function)组成</strong>,</p>
+<p>函数本身互不影响,对于<strong><em>相同输入总具有相同输出</em></strong>.</p>
+<p>eg:将一个列表中的元素变为原来的两遍</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multiply_2</span><span class="params">(l)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">0</span>, len(l)):</span><br><span class="line">        l[index] *= <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> l</span><br></pre></td></tr></table></figure>
+<p>这段代码就不是纯函数,因为列表中元素的值被改变了,多次调用会返回不同的值,如果要把它编程纯函数的形式,则需要建立新的列表并返回</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mutiply_2_puer</span><span class="params">(l)</span>:</span></span><br><span class="line">    new_list=[];</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> l:</span><br><span class="line">        new_list.append(item*<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> new_list</span><br></pre></td></tr></table></figure>
+<p>函数式编程的优点在于其纯函数的不可变性使程序更加健壮,易于<strong>调试和测试</strong>,</p>
+<p>缺点主要就是限制多并且比较难写</p>
+<p>python不同于一些函数式编程语言(Scala,我也不了解),它并不是函数式编程语言,但也提供了一些函数式编程的特性</p>
+<p>python主要提供下面三个函数:<strong>map(),filter(),reduce()</strong>,通常和匿名函数一起使用</p>
+<p><strong>map(function,iterable)</strong>,主要是对iterable(可迭代对象)中的每个元素运用function函数,最后返回一个可遍历的集合</p>
+<p>下面是对其性能的测试(其实这是有争议的,据说流畅的python书中是认为列表推导式的速度更快)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">python3 -mtimeit -s<span class="string">'xs=range(1000000)'</span> <span class="string">'map(lambda x: x*2, xs)'</span></span><br><span class="line"><span class="number">2000000</span> loops, best of <span class="number">5</span>: <span class="number">171</span> nsec per loop</span><br><span class="line"></span><br><span class="line">python3 -mtimeit -s<span class="string">'xs=range(1000000)'</span> <span class="string">'[x * 2 for x in xs]'</span></span><br><span class="line"><span class="number">5</span> loops, best of <span class="number">5</span>: <span class="number">62.9</span> msec per loop</span><br><span class="line"></span><br><span class="line">python3 -mtimeit -s<span class="string">'xs=range(1000000)'</span> <span class="string">'l = []'</span> <span class="string">'for i in xs: l.append(i * 2)'</span></span><br><span class="line"><span class="number">5</span> loops, best of <span class="number">5</span>: <span class="number">92.7</span> msec per loop</span><br></pre></td></tr></table></figure>
+<p>map函数是最快,因为其有由C语言进行编写并且内部进行了优化</p>
+<p><strong>filter函数则是对iterable中的每个元素都进行function判断</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">filter(<span class="keyword">lambda</span> x:x%<span class="number">2</span>==<span class="number">1</span>,l)  <span class="comment">#[1,3]</span></span><br></pre></td></tr></table></figure>
+<p>而最后的reduce函数则是对<strong>某个集合进行累积操作</strong>,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">product = reduce(<span class="keyword">lambda</span> x, y: x * y, l) <span class="comment"># 1*2*3*4*5 = 120</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -604,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数基础"><span class="nav-number">1.</span> <span class="nav-text">函数基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的嵌套"><span class="nav-number">2.</span> <span class="nav-text">函数的嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数变量作用域"><span class="nav-number">3.</span> <span class="nav-text">函数变量作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">4.</span> <span class="nav-text">闭包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数基础"><span class="nav-number">1.</span> <span class="nav-text">函数基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的嵌套"><span class="nav-number">2.</span> <span class="nav-text">函数的嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数变量作用域"><span class="nav-number">3.</span> <span class="nav-text">函数变量作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">4.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数"><span class="nav-number">5.</span> <span class="nav-text">匿名函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名函数基础"><span class="nav-number">5.1.</span> <span class="nav-text">匿名函数基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要使用匿名函数"><span class="nav-number">5.2.</span> <span class="nav-text">为什么要使用匿名函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python的函数式编程"><span class="nav-number">6.</span> <span class="nav-text">python的函数式编程</span></a></li></ol></div>
             
 
           </div>
@@ -638,7 +671,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14.3k</span>
+    <span title="Site words total count">15.2k</span>
   
 </div>
 
