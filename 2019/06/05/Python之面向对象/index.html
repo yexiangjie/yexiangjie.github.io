@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="面向对象也称为OOP(object-oriented -programming),c++和Java是比较典型的面向对象编程语言,Python同样也支持面向对象的特性,但是其面向对象还是与上述两门语言有区别的, 面向对象的基本概念123456789101112131415161718192021222324252627282930313233343536373839404142class Docum">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python之面向对象">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/Python之面向对象/index.html">
+<meta property="og:site_name" content="YXJ‘ Blog">
+<meta property="og:description" content="面向对象也称为OOP(object-oriented -programming),c++和Java是比较典型的面向对象编程语言,Python同样也支持面向对象的特性,但是其面向对象还是与上述两门语言有区别的, 面向对象的基本概念123456789101112131415161718192021222324252627282930313233343536373839404142class Docum">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-05T13:21:30.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python之面向对象">
+<meta name="twitter:description" content="面向对象也称为OOP(object-oriented -programming),c++和Java是比较典型的面向对象编程语言,Python同样也支持面向对象的特性,但是其面向对象还是与上述两门语言有区别的, 面向对象的基本概念123456789101112131415161718192021222324252627282930313233343536373839404142class Docum">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/Python之面向对象/">
+
+
+
+
+
+  <title>Python之面向对象 | YXJ‘ Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YXJ‘ Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每一个程序员都有一颗开源的心</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/Python之面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YXJ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YXJ‘ Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python之面向对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T19:48:18+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-05T21:21:30+08:00">
+                2019-06-05
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/05/Python之面向对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/05/Python之面向对象/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/05/Python之面向对象/" class="leancloud_visitors" data-flag-title="Python之面向对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>面向对象也称为OOP(object-oriented -programming),c++和Java是比较典型的面向对象编程语言,Python同样也支持面向对象的特性,但是其面向对象还是与上述两门语言有区别的,</p>
+<h3 id="面向对象的基本概念"><a href="#面向对象的基本概念" class="headerlink" title="面向对象的基本概念"></a>面向对象的基本概念</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Document</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,title,author,context)</span>:</span></span><br><span class="line">        print(<span class="string">"init function called"</span>)</span><br><span class="line">        self.title=title</span><br><span class="line">        self.auther=auther</span><br><span class="line">        self.__context=context   <span class="comment">#__开头代表其为私有属性</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_context_length</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  len(self.__context)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">intercept_context</span><span class="params">(self,length)</span>:</span></span><br><span class="line">        self.__context=self.__context[:length]</span><br><span class="line"></span><br><span class="line">harry_potter_book=Document(<span class="string">'Harry potter'</span>,<span class="string">'J.K.Rowling'</span>, <span class="string">'... Forever Do not believe any thing is capable of thinking independently ...'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(harry_potter_book.title)</span><br><span class="line">print(harry_potter_book.author)</span><br><span class="line">print(harry_potter_book.get_context_length())</span><br><span class="line"></span><br><span class="line">harry_potter_book.intercept_context(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(harry_potter_book.get_context_length())</span><br><span class="line"></span><br><span class="line">print(harry_potter_book.__context)</span><br><span class="line"></span><br><span class="line"><span class="comment">########## 输出 ##########</span></span><br><span class="line"></span><br><span class="line">init function called</span><br><span class="line">Harry Potter</span><br><span class="line">J. K. Rowling</span><br><span class="line"><span class="number">77</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-5</span>-b4d048d75003&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">     <span class="number">22</span> print(harry_potter_book.get_context_length())</span><br><span class="line">     <span class="number">23</span> </span><br><span class="line">---&gt; 24 print(harry_potter_book.__context)</span><br><span class="line"></span><br><span class="line">AttributeError: <span class="string">'Document'</span> object has no attribute <span class="string">'__context'</span></span><br></pre></td></tr></table></figure>
+<p>给出不那么严谨却容易理解的几个概念:</p>
+<ul>
+<li>类;一群有着相似事物的集合,对应Python中的class</li>
+<li>对象:集合中的一个事物,对应由class生成的一个实例(object),比如代码中的哈利波特</li>
+<li>属性:对象的某个静态特征,上述代码中的title,author,__context</li>
+<li>函数:对象中的某个动态特征,上述代码中的intercept_context()函数</li>
+</ul>
+<p>严谨的定义则是:<strong>类:一群有着相同属性和对象的集合</strong></p>
+<p>可以看到class Document定义了Document类,下面有三个函数</p>
+<p>其中.<strong>init</strong>函数代表构造函数,即一个对象生成是就会<strong>自动调用</strong>的函数,而其他两个函数则是正常的函数,让我们对对象中的属性进行操作,需要注意的是类中的<strong>私有属性不能被外部访问</strong></p>
+<p>下面再给出一个类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Document</span><span class="params">()</span>:</span></span><br><span class="line">    WELCOME_STR=<span class="string">'Welcome! The context for this book is &#123;&#125;'</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'init function called'</span>)</span><br><span class="line">        self.title=title</span><br><span class="line">        self.author=author</span><br><span class="line">        self.__context=context</span><br><span class="line">        </span><br><span class="line"><span class="meta">    @classmethod  #类函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create_empty_book</span><span class="params">(cls,title,author)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls(title=title,author=author,context=<span class="string">'nothing'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#成员函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_context_legth</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.__context)</span><br><span class="line">    </span><br><span class="line"><span class="meta">    @staticmethod   #静态函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_welcome</span><span class="params">(context)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Document.WELCOME_STR.format(context)</span><br><span class="line"></span><br><span class="line">empty_book = Document.create_empty_book(<span class="string">'What Every Man Thinks About Apart from Sex'</span>, <span class="string">'Professor Sheridan Simove'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(empty_book.get_context_length())</span><br><span class="line">print(empty_book.get_welcome(<span class="string">'indeed nothing'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">########## 输出 ##########</span></span><br><span class="line"></span><br><span class="line">init function called</span><br><span class="line"><span class="number">7</span></span><br><span class="line">Welcome! The context <span class="keyword">for</span> this book <span class="keyword">is</span> indeed nothing.</span><br></pre></td></tr></table></figure>
+<p>用<strong>全大写来表示常量</strong>,可以在类中直接使用或者在类外面使用Entity.常量名</p>
+<p>下面介绍类中的三种函数</p>
+<ul>
+<li>静态函数,一般加上@staticmethod修饰,第一个参数没有任何特征,一般做一些简单独立的任务,方便调试和优化代码结构</li>
+<li>类函数的第一个对象一般为cls,类函数最常用的功能是实现不同的<strong>init函数</strong>,</li>
+<li>成员函数则是正常的类中函数,第一个参数self表示当前对象的引用,通过此函数完成查询/修改等操作</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>类的继承就是,是指一个类拥有另一个类的特征,也拥有不同于另一个类的独特特征,第一个类称为子类,另一个类称为父类,特征就是类的属性和函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Entity</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, object_type)</span>:</span></span><br><span class="line">        print(<span class="string">'parent class init called'</span>)</span><br><span class="line">        self.object_type = object_type</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_context_length</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">'get_context_length not implemented'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_title</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.title)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Document</span><span class="params">(Entity)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, title, author, context)</span>:</span></span><br><span class="line">        print(<span class="string">'Document class init called'</span>)</span><br><span class="line">        Entity.__init__(self, <span class="string">'document'</span>)</span><br><span class="line">        self.title = title</span><br><span class="line">        self.author = author</span><br><span class="line">        self.__context = context</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_context_length</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.__context)</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Video</span><span class="params">(Entity)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, title, author, video_length)</span>:</span></span><br><span class="line">        print(<span class="string">'Video class init called'</span>)</span><br><span class="line">        Entity.__init__(self, <span class="string">'video'</span>)</span><br><span class="line">        self.title = title</span><br><span class="line">        self.author = author</span><br><span class="line">        self.__video_length = video_length</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_context_length</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__video_length</span><br><span class="line"></span><br><span class="line">harry_potter_book = Document(<span class="string">'Harry Potter(Book)'</span>, <span class="string">'J. K. Rowling'</span>, <span class="string">'... Forever Do not believe any thing is capable of thinking independently ...'</span>)</span><br><span class="line">harry_potter_movie = Video(<span class="string">'Harry Potter(Movie)'</span>, <span class="string">'J. K. Rowling'</span>, <span class="number">120</span>)</span><br><span class="line"></span><br><span class="line">print(harry_potter_book.object_type)</span><br><span class="line">print(harry_potter_movie.object_type)</span><br><span class="line"></span><br><span class="line">harry_potter_book.print_title()</span><br><span class="line">harry_potter_movie.print_title()</span><br><span class="line"></span><br><span class="line">print(harry_potter_book.get_context_length())</span><br><span class="line">print(harry_potter_movie.get_context_length())</span><br><span class="line"></span><br><span class="line"><span class="comment">########## 输出 ##########</span></span><br><span class="line"></span><br><span class="line">Document <span class="class"><span class="keyword">class</span> <span class="title">init</span> <span class="title">called</span></span></span><br><span class="line"><span class="class"><span class="title">parent</span> <span class="title">class</span> <span class="title">init</span> <span class="title">called</span></span></span><br><span class="line"><span class="class"><span class="title">Video</span> <span class="title">class</span> <span class="title">init</span> <span class="title">called</span></span></span><br><span class="line"><span class="class"><span class="title">parent</span> <span class="title">class</span> <span class="title">init</span> <span class="title">called</span></span></span><br><span class="line"><span class="class"><span class="title">document</span></span></span><br><span class="line"><span class="class"><span class="title">video</span></span></span><br><span class="line"><span class="class"><span class="title">Harry</span> <span class="title">Potter</span><span class="params">(Book)</span></span></span><br><span class="line"><span class="class"><span class="title">Harry</span> <span class="title">Potter</span><span class="params">(Movie)</span></span></span><br><span class="line"><span class="class">77</span></span><br><span class="line"><span class="class">120</span></span><br></pre></td></tr></table></figure>
+<p>Document和Video都有相似的地方,比如说都有相应的标题,作者和内容等属性,我们从中抽象出一个Entity的类,作为它们的父类</p>
+<p>继承类自动生成对象时是<strong>不会自动调用父类的构造函数</strong>,因此必须要在子类的init()函数中<strong>显示调用父类的构造函数</strong>,执行顺序为子类的构造函数-&gt;父类的构造函数</p>
+<p>父类中的get_context_length函数.如果直接使用entity生成对象,调用就会raise error中断程序的执行,而子类必须通过<strong>函数重写</strong>来覆盖掉原有的函数</p>
+<p>最后子类可以毫无压力的调用父类定义的print_title函数.这就体现了继承的优点:<strong>减少重复的代码,降低系统的熵值(复杂度).</strong></p>
+<h3 id="抽象函数和抽象类"><a href="#抽象函数和抽象类" class="headerlink" title="抽象函数和抽象类"></a>抽象函数和抽象类</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta, abstractmethod</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Entity</span><span class="params">(metaclass=ABCMeta)</span>:</span></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_title</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_title</span><span class="params">(self, title)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Document</span><span class="params">(Entity)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_title</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.title</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_title</span><span class="params">(self, title)</span>:</span></span><br><span class="line">        self.title = title</span><br><span class="line"></span><br><span class="line">document = Document()</span><br><span class="line">document.set_title(<span class="string">'Harry Potter'</span>)</span><br><span class="line">print(document.get_title())</span><br><span class="line"></span><br><span class="line">entity = Entity()</span><br><span class="line"></span><br><span class="line"><span class="comment">########## 输出 ##########</span></span><br><span class="line"></span><br><span class="line">Harry Potter</span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError                                 Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-7</span><span class="number">-266</span>b2aa47bad&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">     <span class="number">21</span> print(document.get_title())</span><br><span class="line">     <span class="number">22</span> </span><br><span class="line">---&gt; 23 entity = Entity()</span><br><span class="line">     <span class="number">24</span> entity.set_title(<span class="string">'Test'</span>)</span><br><span class="line"></span><br><span class="line">TypeError: Can<span class="string">'t instantiate abstract class Entity with abstract methods get_title, set_title</span></span><br></pre></td></tr></table></figure>
+<p>Entity类本身没有什么意义,只需要定义一些基本元素即可,为了防止不小心生成Entity的对象,就需要引入抽象类</p>
+<p>抽象类是一种特殊的类,他生下来就是<strong>作为父类存在的</strong>,一旦对象化就会报错,抽象函数定义在抽象类中,<strong>子类必须重写抽象函数</strong>,使用@acstractmethod修饰</p>
+<p>这就是软件工程中很重要的概念:<strong>定义接口</strong>,抽象类就是这么一种存在，它是一种自上而下的设计风范，你只需要用少量的代码描述清楚要做的事情,定义好接口,然后交由开发人员开发和对接</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" <i class="fa fa-tag"> Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/05/堆/" rel="next" title="堆">
+                <i class="fa fa-chevron-left"></i> 堆
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">YXJ</p>
+              <p class="site-description motion-element" itemprop="description">双非电信专业在读，准备跨考计算机</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yexiangjie" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象的基本概念"><span class="nav-number">1.</span> <span class="nav-text">面向对象的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象函数和抽象类"><span class="nav-number">3.</span> <span class="nav-text">抽象函数和抽象类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YXJ</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">18.1k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      你是来访的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位小伙伴
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问次数：
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'UMUmLnevvRG3PCofryYlOQL6-gzGzoHsz',
+        appKey: 'jG394Hrdsa3j0OeIN2vFF25s',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("UMUmLnevvRG3PCofryYlOQL6-gzGzoHsz", "jG394Hrdsa3j0OeIN2vFF25s");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
