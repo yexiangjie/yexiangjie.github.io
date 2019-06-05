@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="堆的定义堆是一颗完全二叉树,有两种类型的堆  如果父亲节点的值大于或等于孩子节点的值,这种堆称为大顶堆 反之小于等于则称为小顶堆  堆调整先定义数组来存储完全二叉树 123const int maxn=100;int heap[maxn],n=10;//如果将根节点放入1号位,则其左孩子为2i,右孩子为2i+1; 堆调整的策略是向下调整,将节点V与其左右孩子进行比较,选取其中较大的与根节点进行比较">
+<meta name="keywords" content="算法笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="堆">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/堆/index.html">
+<meta property="og:site_name" content="YXJ‘ Blog">
+<meta property="og:description" content="堆的定义堆是一颗完全二叉树,有两种类型的堆  如果父亲节点的值大于或等于孩子节点的值,这种堆称为大顶堆 反之小于等于则称为小顶堆  堆调整先定义数组来存储完全二叉树 123const int maxn=100;int heap[maxn],n=10;//如果将根节点放入1号位,则其左孩子为2i,右孩子为2i+1; 堆调整的策略是向下调整,将节点V与其左右孩子进行比较,选取其中较大的与根节点进行比较">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-05T11:34:34.226Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="堆">
+<meta name="twitter:description" content="堆的定义堆是一颗完全二叉树,有两种类型的堆  如果父亲节点的值大于或等于孩子节点的值,这种堆称为大顶堆 反之小于等于则称为小顶堆  堆调整先定义数组来存储完全二叉树 123const int maxn=100;int heap[maxn],n=10;//如果将根节点放入1号位,则其左孩子为2i,右孩子为2i+1; 堆调整的策略是向下调整,将节点V与其左右孩子进行比较,选取其中较大的与根节点进行比较">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/堆/">
+
+
+
+
+
+  <title>堆 | YXJ‘ Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YXJ‘ Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每一个程序员都有一颗开源的心</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/堆/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YXJ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YXJ‘ Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">堆</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T19:33:53+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-05T19:34:34+08:00">
+                2019-06-05
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/05/堆/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/05/堆/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/05/堆/" class="leancloud_visitors" data-flag-title="堆">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="堆的定义"><a href="#堆的定义" class="headerlink" title="堆的定义"></a>堆的定义</h3><p>堆是一颗<strong>完全二叉树</strong>,有两种类型的堆</p>
+<ul>
+<li>如果父亲节点的值<strong>大于或等于</strong>孩子节点的值,这种堆称为大顶堆</li>
+<li>反之<strong>小于等于</strong>则称为小顶堆</li>
+</ul>
+<h3 id="堆调整"><a href="#堆调整" class="headerlink" title="堆调整"></a>堆调整</h3><p>先定义数组来存储完全二叉树</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> heap[maxn],n=<span class="number">10</span>;</span><br><span class="line"><span class="comment">//如果将根节点放入1号位,则其左孩子为2i,右孩子为2i+1;</span></span><br></pre></td></tr></table></figure>
+<p>堆调整的策略是<strong>向下调整</strong>,将节点V与其左右孩子进行比较,选取其中较大的与根节点进行比较,如果比根节点大,则交换,然后继续让孩子节点充当根节点,不断向下.</p>
+<p>时间复杂度为<strong>O(logn)</strong>,</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">downAdjust</span><span class="params">(<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span> <span class="comment">//low为欲调整节点的数组下标,high为堆最后一个元素的数组下标</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=low;j=i*<span class="number">2</span>;   <span class="comment">//j为欲调整节点的左孩子</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=high)     <span class="comment">//存在孩子节点</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(j+<span class="number">1</span>&lt;=high&amp;&amp;heap[j]&lt;heap[j+<span class="number">1</span>])   <span class="comment">//右孩子的值比左孩子的大就把右孩子的下标给左孩子</span></span><br><span class="line">            j=j+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(heap[j]&gt;heap[i])</span><br><span class="line">        &#123;</span><br><span class="line">            swap(heap[j],heap[i]);</span><br><span class="line">            i=j;</span><br><span class="line">            j=i*<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>假设系列中元素的个数为n,完全二叉树的叶子节点的个数为不超过n/2的最大整数,因此只要将[1,不超过n/2最大整数]之间进行调整即可,<strong>从不超过n/2的最大整数开始枚举到一</strong>可以确保每个根节点都是其子树中的最大权值.</p>
+<p>时间复杂度为<strong>O(n)</strong>,</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createheap</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n/<span class="number">2</span>,i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">        downAdjust(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果删除堆顶元素,只需要将<strong>最后一个元素覆盖堆顶元素并调整</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deletetop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    heap[<span class="number">1</span>]=heap[n--];</span><br><span class="line">    downAdjust(<span class="number">1</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果要往堆中添加元素,则<strong>将其放置于数组最后,并向上调整,</strong>比较父亲节点,如果比它小,就交换</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">upAdjust</span><span class="params">(<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=high,j=i/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span>(j&gt;=low)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(heap[i]&gt;heap[j])</span><br><span class="line">        &#123;</span><br><span class="line">            swap(heap[i],heap[j]);</span><br><span class="line">            i=j;</span><br><span class="line">            j=i/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    heap[++n]=x;</span><br><span class="line">    upAdjust(<span class="number">1</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>由于堆顶元素是最大的,直观上来说,应该取出堆顶元素,然后将最后一个元素替换到堆顶进行向下调整,直到堆中只有一个元素</p>
+<p>为了节省空间,具体的操作是<strong>倒序遍历数组,访问到i时将i与堆顶元素交换,然后[1,i-1]进行调整,即为递增序列</strong>,</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">heapSort</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    crateheap();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;<span class="number">1</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(heap[<span class="number">1</span>],heap[i]);</span><br><span class="line">        downAdjust(<span class="number">1</span>,i<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="堆排序的实例"><a href="#堆排序的实例" class="headerlink" title="堆排序的实例"></a>堆排序的实例</h3><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805368847187968" target="_blank" rel="noopener">PAT1098</a>,题目的大意是给出先给出n个整数,第一行是无序的,第二行是排序过一部分的,让我们判断排序的方法是插入排序还是堆排序,并输出下轮排序的结果</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">downadjust</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;b,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=low,j=<span class="number">2</span>*i;</span><br><span class="line">    <span class="keyword">while</span>(j&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(j+<span class="number">1</span>&lt;=high&amp;&amp;b[j+<span class="number">1</span>]&gt;b[j])</span><br><span class="line">           j=j+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(b[i]&lt;b[j])</span><br><span class="line">        &#123;</span><br><span class="line">            swap(b[i],b[j]);</span><br><span class="line">            i=j;</span><br><span class="line">            j=i*<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,p=<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(n+<span class="number">1</span>),b(n+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">       <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">       <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;b[i]);</span><br><span class="line">    <span class="keyword">while</span>(p&lt;=n&amp;&amp;b[p<span class="number">-1</span>]&lt;b[p]) </span><br><span class="line">       p++;</span><br><span class="line">    <span class="keyword">int</span> index=p;</span><br><span class="line">    <span class="keyword">while</span>(p&lt;=n&amp;&amp;b[p]==a[p])</span><br><span class="line">       p++;</span><br><span class="line">    <span class="keyword">if</span>(p==n+<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Insertion Sort\n"</span>);</span><br><span class="line">        sort(b.begin()+<span class="number">1</span>,b.begin()+index+<span class="number">1</span>);   <span class="comment">//标号是从一开始排序,注意sort函数只能排序到第二个数字标号的前一个</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Heap Sort\n"</span>);</span><br><span class="line">        p=n;</span><br><span class="line">        <span class="keyword">while</span>(p&gt;<span class="number">2</span>&amp;&amp;b[p]&gt;=b[<span class="number">1</span>]) </span><br><span class="line">           p--;</span><br><span class="line">        swap(b[<span class="number">1</span>],b[p]);</span><br><span class="line">        downadjust(b,<span class="number">1</span>,p<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">1</span>)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"%d"</span>,b[i]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">" %d"</span>,b[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>遗憾的是第四个检测点并没有通过,所以扣掉了四分emmm,但这并不影响吧,这代码还是很优秀的</p>
+<p>本题目需要的注意点</p>
+<ul>
+<li>数组的标号,为了便于堆排序,我们就从1开始标号,这不同于很多的排序,需要尤其注意</li>
+<li><strong>插入排序的特点是其前面的几个数字是有序的(许多书中都是以扑克牌为例的),因为需要有下一轮的结果,我们就找到排序好数字的后一个并赋给index</strong></li>
+<li><strong>堆排序的最大特点是后面几个是从小到大有序的,我们需要找到比第一个小的下标,并与第一个交换之后调整,可以参考上文的堆排序</strong></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法笔记/" <i class="fa fa-tag"> 算法笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/03/六月/" rel="next" title="六月">
+                <i class="fa fa-chevron-left"></i> 六月
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">YXJ</p>
+              <p class="site-description motion-element" itemprop="description">双非电信专业在读，准备跨考计算机</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yexiangjie" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆的定义"><span class="nav-number">1.</span> <span class="nav-text">堆的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆调整"><span class="nav-number">2.</span> <span class="nav-text">堆调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序"><span class="nav-number">3.</span> <span class="nav-text">堆排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序的实例"><span class="nav-number">4.</span> <span class="nav-text">堆排序的实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YXJ</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">16.7k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      你是来访的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位小伙伴
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问次数：
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'UMUmLnevvRG3PCofryYlOQL6-gzGzoHsz',
+        appKey: 'jG394Hrdsa3j0OeIN2vFF25s',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("UMUmLnevvRG3PCofryYlOQL6-gzGzoHsz", "jG394Hrdsa3j0OeIN2vFF25s");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
