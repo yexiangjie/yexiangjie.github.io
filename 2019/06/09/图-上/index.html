@@ -82,14 +82,14 @@
 <meta name="description" content="图的基本概念接下来就要进入最复杂的数据结构,也就是图论,图是一种很常用却也很复杂的数据结构,由于我在大话数据结构已经过了一遍图的基本概念和一些应用,故我的学习主要是针对PAT的题目进行实操,以巩固我的数据结构的学习. 下面简单介绍一下基本概念, 图是顶点与边组成的,顶点和边都可以存储权值,图的存储方式主要有两种,是邻接矩阵和领接表,图的应用主要有图的遍历,最短路径,最小生成树和拓扑排序以及关键路径">
 <meta name="keywords" content="算法笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图(上)">
+<meta property="og:title" content="图.1">
 <meta property="og:url" content="http://yoursite.com/2019/06/09/图-上/index.html">
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="图的基本概念接下来就要进入最复杂的数据结构,也就是图论,图是一种很常用却也很复杂的数据结构,由于我在大话数据结构已经过了一遍图的基本概念和一些应用,故我的学习主要是针对PAT的题目进行实操,以巩固我的数据结构的学习. 下面简单介绍一下基本概念, 图是顶点与边组成的,顶点和边都可以存储权值,图的存储方式主要有两种,是邻接矩阵和领接表,图的应用主要有图的遍历,最短路径,最小生成树和拓扑排序以及关键路径">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-09T11:36:59.269Z">
+<meta property="og:updated_time" content="2019-06-10T13:31:44.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图(上)">
+<meta name="twitter:title" content="图.1">
 <meta name="twitter:description" content="图的基本概念接下来就要进入最复杂的数据结构,也就是图论,图是一种很常用却也很复杂的数据结构,由于我在大话数据结构已经过了一遍图的基本概念和一些应用,故我的学习主要是针对PAT的题目进行实操,以巩固我的数据结构的学习. 下面简单介绍一下基本概念, 图是顶点与边组成的,顶点和边都可以存储权值,图的存储方式主要有两种,是邻接矩阵和领接表,图的应用主要有图的遍历,最短路径,最小生成树和拓扑排序以及关键路径">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>图(上) | YXJ‘ Blog</title>
+  <title>图.1 | YXJ‘ Blog</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">图(上)</h1>
+          <h1 class="post-title" itemprop="name headline">图.1</h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-09T19:36:59+08:00">
-                2019-06-09
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-10T21:31:44+08:00">
+                2019-06-10
               </time>
             
           </span>
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2019/06/09/图-上/" class="leancloud_visitors" data-flag-title="图(上)">
+             <span id="/2019/06/09/图-上/" class="leancloud_visitors" data-flag-title="图.1">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  2k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  8
                 </span>
               
             </div>
@@ -415,6 +415,21 @@
 <li>因为图中可能存在环的情况,故应该在记录权值之后就将访问过的路径置0,从而<strong>避免死循环</strong>,</li>
 <li>采用<strong>传递引用的方法</strong>进行DFS,从而传入的参数在DFS后依旧能够保存下来</li>
 </ul>
+<p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805482919673856" target="_blank" rel="noopener">PAT1021</a></p>
+<p>题目中用到了STL中的set,简单介绍一下set翻译为集合.是一个<strong>内部自动排序并且不含重复元素的</strong>容器</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">typename</span>&gt; name;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过迭代器访问</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">typename</span>&gt;::iterator it</span><br><span class="line"></span><br><span class="line"><span class="comment">//常见函数</span></span><br><span class="line">name.insert()  <span class="comment">//插入</span></span><br><span class="line">name.find()    <span class="comment">//查找</span></span><br><span class="line">name.size()    <span class="comment">//获取元素个数</span></span><br><span class="line">name.clear()   <span class="comment">//清空元素</span></span><br></pre></td></tr></table></figure>
+<p>题目的大意是给出n个节点,然后你要根据深度遍历来确定哪个节点开始遍历是深度最深的,如果存在多个节点开始遍历深度相同,则输出多个节点,若该图存在多个连通分量,则输出错误.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; v;        <span class="comment">//定义二维数组</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp;             <span class="comment">//用来存储深度最大节点的临时向量</span></span><br><span class="line"><span class="keyword">int</span> n,maxheight=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">bool</span> visit[<span class="number">10010</span>];</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;                   <span class="comment">//用来存储结果的集合</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> node,<span class="keyword">int</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(height&gt;maxheight)      <span class="comment">//如果深度大于最大深度</span></span><br><span class="line">    &#123;</span><br><span class="line">        temp.clear();</span><br><span class="line">        temp.push_back(node);</span><br><span class="line">        maxheight=height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(height==maxheight) <span class="comment">//等于最大深度</span></span><br><span class="line">        temp.push_back(node);</span><br><span class="line">    visit[node]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v[node].size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(visit[v[node][i]]==<span class="literal">false</span>)</span><br><span class="line">          dfs(v[node][i],height+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    v.resize(n+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> a,b,cnt=<span class="number">0</span>,s1=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)      <span class="comment">//注意只有n-1行</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</span><br><span class="line">        v[a].push_back(b);</span><br><span class="line">        v[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)       <span class="comment">//节点的编号从1开始</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(visit[i]==<span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            dfs(i,<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">1</span>)            <span class="comment">//第一次遍历</span></span><br><span class="line">            &#123;</span><br><span class="line">                s1=temp[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;temp.size();j++)</span><br><span class="line">                   s.insert(temp[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt&gt;=<span class="number">2</span>)</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"Error: %d components"</span>,cnt); </span><br><span class="line">    <span class="keyword">else</span>                       <span class="comment">//只有一个连通分量*(多数情况)</span></span><br><span class="line">    &#123; </span><br><span class="line">        temp.clear();</span><br><span class="line">        maxheight=<span class="number">0</span>;</span><br><span class="line">        fill(visit,visit+<span class="number">10010</span>,<span class="literal">false</span>);   <span class="comment">//将所有的visit置为false之后重新深度遍历</span></span><br><span class="line">        dfs(s1,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;temp.size();i++)</span><br><span class="line">           s.insert(temp[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=s.begin();it!=s.end();it++)</span><br><span class="line">           <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,*it);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此题说实话很难,我昨晚研究了许久柳神的代码才能看懂</p>
+<p>柳神的解法很奇特,大部分只有一个连通分量求最深的节点,</p>
+<ul>
+<li><strong>第一轮深度遍历完整个图,</strong></li>
+<li><strong>将图中最大深度的节点放入临时数组temp</strong>(从一开始遍历,其实是可以推断出其肯定为最深的节点)</li>
+<li><strong>将temp数组的第一个节点赋给s1</strong></li>
+<li><strong>以s1为节点再开始一轮遍历</strong></li>
+<li><strong>取出temp并取两个的交集</strong></li>
+</ul>
+<p>其实是很难想到为什么的,其实后来细想,深度遍历本来就可以倒置,你都是从上至下遍历遍历到最深的,肯定可以证明所有相同深度的节点是一样最深,而至于为什么第一次遍历出来的结果拿来遍历其实也是很难理解吧,不过算法<strong>还是要多积累,多学习,做过一次就争取记住,下次遇到同类型的就可以用学过的方法</strong>.</p>
 
       
     </div>
@@ -623,7 +638,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.4k</span>
+    <span title="Site words total count">22.1k</span>
   
 </div>
 
