@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="图的基本概念接下来就要进入最复杂的数据结构,也就是图论,图是一种很常用却也很复杂的数据结构,由于我在大话数据结构已经过了一遍图的基本概念和一些应用,故我的学习主要是针对PAT的题目进行实操,以巩固我的数据结构的学习. 下面简单介绍一下基本概念, 图是顶点与边组成的,顶点和边都可以存储权值,图的存储方式主要有两种,是邻接矩阵和领接表,图的应用主要有图的遍历,最短路径,最小生成树和拓扑排序以及关键路径">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-10T13:36:35.170Z">
+<meta property="og:updated_time" content="2019-06-13T08:21:08.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图(上)">
 <meta name="twitter:description" content="图的基本概念接下来就要进入最复杂的数据结构,也就是图论,图是一种很常用却也很复杂的数据结构,由于我在大话数据结构已经过了一遍图的基本概念和一些应用,故我的学习主要是针对PAT的题目进行实操,以巩固我的数据结构的学习. 下面简单介绍一下基本概念, 图是顶点与边组成的,顶点和边都可以存储权值,图的存储方式主要有两种,是邻接矩阵和领接表,图的应用主要有图的遍历,最短路径,最小生成树和拓扑排序以及关键路径">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-10T21:36:35+08:00">
-                2019-06-10
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-13T16:21:08+08:00">
+                2019-06-13
               </time>
             
           </span>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  2.3k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  10
                 </span>
               
             </div>
@@ -430,6 +430,10 @@
 <li><strong>取出temp并取两个的交集</strong></li>
 </ul>
 <p>其实是很难想到为什么的,其实后来细想,深度遍历本来就可以倒置,你都是从上至下遍历遍历到最深的,肯定可以证明所有相同深度的节点是一样最深,而至于为什么第一次遍历出来的结果拿来遍历其实也是很难理解吧,不过算法<strong>还是要多积累,多学习,做过一次就争取记住,下次遇到同类型的就可以用学过的方法</strong>.</p>
+<h4 id="图的BFS"><a href="#图的BFS" class="headerlink" title="图的BFS"></a>图的BFS</h4><p>图的BFS遍历是以<strong>广度</strong>作为关键词,参考树的BFS,在管的广度优先遍历过程中要利用队列,反复取出队列的首顶点,将该顶点可到达的<strong>未曾加加入过队列</strong>的顶点入队列</p>
+<p>具体实现同样有基于邻接矩阵和邻接表的版本</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//邻接矩阵</span></span><br><span class="line"><span class="keyword">int</span> n,G[MAXv][MAXV];   <span class="comment">//n为顶点数,MAXV为最大顶点数</span></span><br><span class="line"><span class="keyword">bool</span> visit[MAXV]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(u);     <span class="comment">//将初始点u入队列</span></span><br><span class="line">    visit[u]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())   <span class="comment">//当队列不为空时</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;n;v++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(G[u][v]!=INF&amp;&amp;visit[v]==<span class="literal">false</span>)  <span class="comment">//可达的顶点并且没有入队列</span></span><br><span class="line">            &#123;</span><br><span class="line">                q.push(v);</span><br><span class="line">                visit[v]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFStrave</span><span class="params">()</span>                <span class="comment">//遍历连通图,如果图只有一个连通分量,则只需要遍历一次</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="keyword">if</span>(visit[i]==<span class="literal">false</span>)</span><br><span class="line">            BFS(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//邻接表</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;  Adj[MAXV];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> visit[MAXV]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(u);</span><br><span class="line">    visit[u]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        u=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Adj[u].size(),i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> v=Adj[u][i];</span><br><span class="line">            <span class="keyword">if</span>(visit[v]==<span class="literal">false</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                q.push(v);</span><br><span class="line">                visit[v]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFStrave</span><span class="params">()</span>                <span class="comment">//遍历连通图,如果图只有一个连通分量,则只需要遍历一次</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="keyword">if</span>(visit[i]==<span class="literal">false</span>)</span><br><span class="line">            BFS(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -608,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图的基本概念"><span class="nav-number">1.</span> <span class="nav-text">图的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的遍历"><span class="nav-number">2.</span> <span class="nav-text">图的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图的DFS"><span class="nav-number">2.1.</span> <span class="nav-text">图的DFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图的DFS实例"><span class="nav-number">2.2.</span> <span class="nav-text">图的DFS实例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图的基本概念"><span class="nav-number">1.</span> <span class="nav-text">图的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的遍历"><span class="nav-number">2.</span> <span class="nav-text">图的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图的DFS"><span class="nav-number">2.1.</span> <span class="nav-text">图的DFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图的DFS实例"><span class="nav-number">2.2.</span> <span class="nav-text">图的DFS实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图的BFS"><span class="nav-number">2.3.</span> <span class="nav-text">图的BFS</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -642,7 +646,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.9k</span>
+    <span title="Site words total count">23.2k</span>
   
 </div>
 
