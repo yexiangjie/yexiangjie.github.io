@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="本篇博客主要介绍图的最重要的应用–最短路径,主要介绍三种算法和实例.每种算法都有自己适合运用的地方,需要多思考,多运用方能掌握. Dijkstra算法Dijkstra算法的基本概念Dijkstra(迪杰斯特拉)算法解决的是单源最短路径问题,即给定图G(V,E)和顶点s,求出从起点s到达其顶点的最短路径. 策略:  设置数组来标记顶点是否被访问,之后执行n(顶点个数)次2,3操作 从未访问的节点中取">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-17T12:29:36.000Z">
+<meta property="og:updated_time" content="2019-06-18T08:28:28.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图(中)">
 <meta name="twitter:description" content="本篇博客主要介绍图的最重要的应用–最短路径,主要介绍三种算法和实例.每种算法都有自己适合运用的地方,需要多思考,多运用方能掌握. Dijkstra算法Dijkstra算法的基本概念Dijkstra(迪杰斯特拉)算法解决的是单源最短路径问题,即给定图G(V,E)和顶点s,求出从起点s到达其顶点的最短路径. 策略:  设置数组来标记顶点是否被访问,之后执行n(顶点个数)次2,3操作 从未访问的节点中取">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-17T20:29:36+08:00">
-                2019-06-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-18T16:28:28+08:00">
+                2019-06-18
               </time>
             
           </span>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  2.5k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  11
                 </span>
               
             </div>
@@ -428,7 +428,15 @@
 <li><strong>最短路径与权值无关,只要存在相同的路径,就把num数组进行叠加</strong></li>
 <li>图中特别需要注意<strong>顶点的编号</strong>(本题目是从0到n-1)</li>
 </ul>
-
+<h4 id="Dijkstra-DFS"><a href="#Dijkstra-DFS" class="headerlink" title="Dijkstra+DFS"></a>Dijkstra+DFS</h4><p>上面Dijkstra的拓展的三种方法主要是针对<strong>和问题</strong>.如果遇到更复杂的计算边权或者点权的方式就不怎么合适了,为此引入Dijkstra+DFS.</p>
+<p>该算法的主要思想是:<strong>先在Dijkstra算法中记录下所有最短路径(只考虑距离),然后从这些最短路径中选出一条第二标尺最优的路径</strong>.主要分为两步.</p>
+<h5 id="1-使用Dijkstra算法记录最短路径"><a href="#1-使用Dijkstra算法记录最短路径" class="headerlink" title="1.使用Dijkstra算法记录最短路径"></a>1.使用Dijkstra算法记录最短路径</h5><p>因为可能存在多条最短路径,这就要求pre数组会存在多个前驱节点的可能,为此我们定义pre为<strong>vector</strong>类型</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre[MAXV]</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fill(d,d+MAXV,INF);</span><br><span class="line">    d[s]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u=<span class="number">-1</span>,min=INF;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(vis[j]==<span class="literal">false</span>&amp;&amp;d[j]&lt;min)</span><br><span class="line">            &#123;</span><br><span class="line">                u=j;</span><br><span class="line">                min=d[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(u==<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        vis[u]=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;n;v++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(vis[v]==<span class="literal">false</span>&amp;&amp;G[u][v]!=INF)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(d[u]+G[u][v]&lt;d[v])</span><br><span class="line">                &#123;</span><br><span class="line">                    pre[v].clear();               <span class="comment">//找到更优路径即清空后将前驱入向量</span></span><br><span class="line">                    pre[v].push_back(u);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(d[u]+G[u][v]==d[v])</span><br><span class="line">                    pre[v].push_back(u);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-遍历最短路径-找出一条使得第二标尺最优的路径"><a href="#2-遍历最短路径-找出一条使得第二标尺最优的路径" class="headerlink" title="2.遍历最短路径,找出一条使得第二标尺最优的路径"></a>2.遍历最短路径,找出一条使得第二标尺最优的路径</h5><p>定义全局变量的第二标尺最优值optvalue和最优路径数据path,临时数组temppath来存储DFS遍历的路径,核心思想就是<strong>DFS遍历完整条路径与最优值比较,若比最优值还优,就覆盖</strong></p>
+<p><strong>temppath在递归完整个路径之后一个一个弹出,从而达到清空的效果</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> optvalue;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temppath,path;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> v)</span>     <span class="comment">//v代表要访问的节点</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(v==st)        <span class="comment">//递归边界,如果到达起点</span></span><br><span class="line">    &#123;</span><br><span class="line">        tmeppath.push_back(v);          <span class="comment">//将起点加入最后</span></span><br><span class="line">        <span class="keyword">int</span> value=<span class="number">0</span>; <span class="comment">//计算临时的最优值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=temppath.size()<span class="number">-1</span>;i&gt;<span class="number">0</span>;i--)   <span class="comment">//存放在temppth中的路径是逆序,所以应该倒序遍历</span></span><br><span class="line">        &#123;</span><br><span class="line">            value+=w[temppath[i]];       <span class="comment">//计算点权,此处因题目而异</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(value&gt;optvalue)</span><br><span class="line">        &#123;</span><br><span class="line">            optvalue=value;</span><br><span class="line">            temppath=path;</span><br><span class="line">        &#125;</span><br><span class="line">        temppath.pop_back();   </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//递归式</span></span><br><span class="line">    temppath.push_back(V);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;pre[v].size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        DFS(pre[v][i]);         <span class="comment">//递归遍历所有最短路径</span></span><br><span class="line">    &#125;</span><br><span class="line">    temppath.pop_back();        <span class="comment">//弹出清空临时路径</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果要计算最短路径的数目:<strong>可以在遍历到起点是对定义的全局变量num++或者就是在Dijkstra算法中求解</strong></p>
+<h4 id="Dijkstra-DFS实例"><a href="#Dijkstra-DFS实例" class="headerlink" title="Dijkstra+DFS实例"></a>Dijkstra+DFS实例</h4>
       
     </div>
     
@@ -606,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dijkstra算法"><span class="nav-number">1.</span> <span class="nav-text">Dijkstra算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra算法的基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">Dijkstra算法的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra算法的代码实现"><span class="nav-number">1.2.</span> <span class="nav-text">Dijkstra算法的代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用Dijkstra算法求解最短路径"><span class="nav-number">1.3.</span> <span class="nav-text">利用Dijkstra算法求解最短路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra算法的拓展"><span class="nav-number">1.4.</span> <span class="nav-text">Dijkstra算法的拓展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra算法实例"><span class="nav-number">1.5.</span> <span class="nav-text">Dijkstra算法实例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dijkstra算法"><span class="nav-number">1.</span> <span class="nav-text">Dijkstra算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra算法的基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">Dijkstra算法的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra算法的代码实现"><span class="nav-number">1.2.</span> <span class="nav-text">Dijkstra算法的代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用Dijkstra算法求解最短路径"><span class="nav-number">1.3.</span> <span class="nav-text">利用Dijkstra算法求解最短路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra算法的拓展"><span class="nav-number">1.4.</span> <span class="nav-text">Dijkstra算法的拓展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra算法实例"><span class="nav-number">1.5.</span> <span class="nav-text">Dijkstra算法实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra-DFS"><span class="nav-number">1.6.</span> <span class="nav-text">Dijkstra+DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-使用Dijkstra算法记录最短路径"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.使用Dijkstra算法记录最短路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-遍历最短路径-找出一条使得第二标尺最优的路径"><span class="nav-number">1.6.2.</span> <span class="nav-text">2.遍历最短路径,找出一条使得第二标尺最优的路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dijkstra-DFS实例"><span class="nav-number">1.7.</span> <span class="nav-text">Dijkstra+DFS实例</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -640,7 +648,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">26.2k</span>
+    <span title="Site words total count">26.8k</span>
   
 </div>
 
