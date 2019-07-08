@@ -82,14 +82,14 @@
 <meta name="description" content="对象的比较(==&amp;amp;is)等于和is是python中对象比较比较常见的方式  ==操作符比较对象之间的值是否相等 is操作符比较的是对象的标识符是否相等(是否是同一个对象,是否指向同一块内存)  对于整形数,a  is b is true只适用于-5至256之间 1234567891011121314a = 257b = 257a == bTrueid(a)4473417552id(b)44">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python对象的比较与拷贝">
+<meta property="og:title" content="Python对象的比较与拷贝以及传递">
 <meta property="og:url" content="http://yoursite.com/2019/06/17/python对象的比较与拷贝/index.html">
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="对象的比较(==&amp;amp;is)等于和is是python中对象比较比较常见的方式  ==操作符比较对象之间的值是否相等 is操作符比较的是对象的标识符是否相等(是否是同一个对象,是否指向同一块内存)  对于整形数,a  is b is true只适用于-5至256之间 1234567891011121314a = 257b = 257a == bTrueid(a)4473417552id(b)44">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-08T09:23:47.048Z">
+<meta property="og:updated_time" content="2019-07-08T12:03:51.342Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python对象的比较与拷贝">
+<meta name="twitter:title" content="Python对象的比较与拷贝以及传递">
 <meta name="twitter:description" content="对象的比较(==&amp;amp;is)等于和is是python中对象比较比较常见的方式  ==操作符比较对象之间的值是否相等 is操作符比较的是对象的标识符是否相等(是否是同一个对象,是否指向同一块内存)  对于整形数,a  is b is true只适用于-5至256之间 1234567891011121314a = 257b = 257a == bTrueid(a)4473417552id(b)44">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Python对象的比较与拷贝 | YXJ‘ Blog</title>
+  <title>Python对象的比较与拷贝以及传递 | YXJ‘ Blog</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python对象的比较与拷贝</h1>
+          <h1 class="post-title" itemprop="name headline">Python对象的比较与拷贝以及传递</h1>
         
 
         <div class="post-meta">
@@ -298,7 +298,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-08T17:23:47+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-08T20:03:51+08:00">
                 2019-07-08
               </time>
             
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2019/06/17/python对象的比较与拷贝/" class="leancloud_visitors" data-flag-title="Python对象的比较与拷贝">
+             <span id="/2019/06/17/python对象的比较与拷贝/" class="leancloud_visitors" data-flag-title="Python对象的比较与拷贝以及传递">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  682
+                  1.3k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
@@ -414,6 +414,39 @@
 <p>python中的<strong>copy.deepcopy()</strong>来实现深度拷贝</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">l1 = [[<span class="number">1</span>, <span class="number">2</span>], (<span class="number">30</span>, <span class="number">40</span>)]</span><br><span class="line">l2 = copy.deepcopy(l1)</span><br><span class="line">l1.append(<span class="number">100</span>)</span><br><span class="line">l1[<span class="number">0</span>].append(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">l1</span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], (<span class="number">30</span>, <span class="number">40</span>), <span class="number">100</span>]</span><br><span class="line"></span><br><span class="line">l2 </span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>], (<span class="number">30</span>, <span class="number">40</span>)]</span><br></pre></td></tr></table></figure>
 <p><strong>深度拷贝如果存在引用自身的,程序容易陷入死循环</strong></p>
+<h3 id="Python的变量及其赋值"><a href="#Python的变量及其赋值" class="headerlink" title="Python的变量及其赋值"></a>Python的变量及其赋值</h3><p>Python中的<strong>数据类型例如整型,字符串型是不可变的</strong>,在a=a+1中并不是让a的值加一,而是表示重新创建了一个值为2的对象</p>
+<p>看下面的例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">l1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">l2 = l1</span><br><span class="line">l1.append(<span class="number">4</span>)</span><br><span class="line">l1</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">l2</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<p>在上述代码中l1,l2一起指向[1,2,3]对象,由于列表是可变,故在增加元素的操作之后l1和l2依旧之下指向这个列表</p>
+<p><strong>python中的变量可以被删除,但是对象不能被删除</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">del</span> l</span><br></pre></td></tr></table></figure>
+<p>del只是删除了变量l,而[1,2,3]的对象并未删除,python中的垃圾回收系统会跟踪每个对象</p>
+<p>总结:</p>
+<ul>
+<li>赋值只是让变量指向某个对象,一个对象可以让多个变量所指向</li>
+<li>可变对象(列表,字典,集合)会影响所指向的变量</li>
+<li>不可变对象(元组,字符串,整型),通过某些操作会返回新的对象</li>
+<li>变量可以被删除,但是对象不可以</li>
+</ul>
+<h4 id="Python函数的参数传递"><a href="#Python函数的参数传递" class="headerlink" title="Python函数的参数传递"></a>Python函数的参数传递</h4><p>python参数传递是<strong>赋值传递</strong>,也是对象的<strong>引用传递</strong>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func1</span><span class="params">(b)</span>:</span></span><br><span class="line">	b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">my_func1(a)</span><br><span class="line">a</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>这里的参数传递，使变量 a 和 b 同时指向了 1 这个对象。但当我们执行到 b = 2 时，<strong>系统会重新创<br>建一个值为 2 的新对象，并让 b 指向它；而 a 仍然指向 1 这个对象</strong>。所以，a 的值不变，仍然为<br>1。</p>
+<p>如果需要改变a的值则可以通过下面的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func2</span><span class="params">(b)</span>:</span></span><br><span class="line">    b=<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line"></span><br><span class="line">a=<span class="number">1</span></span><br><span class="line">a=myfunc2(a)</span><br><span class="line">a</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>不过当<strong>可变对象传入</strong>时就会影响所有指向它的变量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func3</span><span class="params">(l2)</span>:</span></span><br><span class="line">	l2.append(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">l1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">my_func3(l1)</span><br><span class="line">l1</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<p>然后参考下面的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func4</span><span class="params">(l2)</span>:</span></span><br><span class="line">	l2 = l2 + [<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">l1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">my_func4(l1)</span><br><span class="line">l1</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>当然我们也可以</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func5</span><span class="params">(l2)</span>:</span></span><br><span class="line">	l2 = l2 + [<span class="number">4</span>]</span><br><span class="line">	<span class="keyword">return</span> l2</span><br><span class="line"></span><br><span class="line">l1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">l1 = my_func5(l1)</span><br><span class="line">l1</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<p>这里你尤其要记住的是，改变变量和重新赋值的区别：</p>
+<ul>
+<li><p>my_func3()中单纯的改变对象的值</p>
+</li>
+<li><p>my_func4()中创建了一个新对象并赋值给本地变量,因此原变量不变</p>
+</li>
+</ul>
+<p>至于 my_func3() 和 my_func5() 的用法，两者虽然写法不同，但实现的功能一致。不过，在实际工<br>作应用中，我们往往倾向于类似 my_func5() 的写法，添加返回语句。这样更简洁明了，不易出错</p>
 
       
     </div>
@@ -592,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的比较-amp-is"><span class="nav-number">1.</span> <span class="nav-text">对象的比较(==&amp;is)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝与深度拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝与深度拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.1.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度拷贝"><span class="nav-number">2.2.</span> <span class="nav-text">深度拷贝</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的比较-amp-is"><span class="nav-number">1.</span> <span class="nav-text">对象的比较(==&amp;is)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝与深度拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝与深度拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.1.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度拷贝"><span class="nav-number">2.2.</span> <span class="nav-text">深度拷贝</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python的变量及其赋值"><span class="nav-number">3.</span> <span class="nav-text">Python的变量及其赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python函数的参数传递"><span class="nav-number">3.1.</span> <span class="nav-text">Python函数的参数传递</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -626,7 +659,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">29.2k</span>
+    <span title="Site words total count">29.9k</span>
   
 </div>
 
