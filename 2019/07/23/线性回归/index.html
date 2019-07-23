@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python,">
+  <meta name="keywords" content="机器学习,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="我对python的理解关于python，我第一次听说应该是大一上的寒假，当时鼓吹python的人工智能和大数据，作为一个新兴的入口和行业吸引着无数的技术人去学习，这几年python的热度也是有增无减，它确实是一门入门简单的语言，但是它的进阶确实挺难的.python目前可以做爬虫啊，web开发，以及最热门的数据挖缺和机器学习 python的学习过程不是一蹴而就的，应该不断得学习和完善，我目前也仅限于">
-<meta name="keywords" content="Python">
+<meta name="description" content="线性回归（linear regression）线性回归是线性模型的基本形式，也是监督学习常用的方法，试图通过属性的线性组合来进行预测的函数，基于tensorflow2.0，给出了较为简单的单输入，单输出的模型预测，具体的理论过程也可以参考周志华的机器学习，里面给出了公式.如果不会公式推导的话可以参考datawhale开源的南瓜书，里面的公式推导相当的详细 看了西瓜书较为简单的模型之后，我主要是应用">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python">
-<meta property="og:url" content="http://yoursite.com/2019/05/17/python/index.html">
+<meta property="og:title" content="线性回归">
+<meta property="og:url" content="http://yoursite.com/2019/07/23/线性回归/index.html">
 <meta property="og:site_name" content="YXJ‘ Blog">
-<meta property="og:description" content="我对python的理解关于python，我第一次听说应该是大一上的寒假，当时鼓吹python的人工智能和大数据，作为一个新兴的入口和行业吸引着无数的技术人去学习，这几年python的热度也是有增无减，它确实是一门入门简单的语言，但是它的进阶确实挺难的.python目前可以做爬虫啊，web开发，以及最热门的数据挖缺和机器学习 python的学习过程不是一蹴而就的，应该不断得学习和完善，我目前也仅限于">
+<meta property="og:description" content="线性回归（linear regression）线性回归是线性模型的基本形式，也是监督学习常用的方法，试图通过属性的线性组合来进行预测的函数，基于tensorflow2.0，给出了较为简单的单输入，单输出的模型预测，具体的理论过程也可以参考周志华的机器学习，里面给出了公式.如果不会公式推导的话可以参考datawhale开源的南瓜书，里面的公式推导相当的详细 看了西瓜书较为简单的模型之后，我主要是应用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-02T05:29:00.163Z">
+<meta property="og:updated_time" content="2019-07-23T13:24:57.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python">
-<meta name="twitter:description" content="我对python的理解关于python，我第一次听说应该是大一上的寒假，当时鼓吹python的人工智能和大数据，作为一个新兴的入口和行业吸引着无数的技术人去学习，这几年python的热度也是有增无减，它确实是一门入门简单的语言，但是它的进阶确实挺难的.python目前可以做爬虫啊，web开发，以及最热门的数据挖缺和机器学习 python的学习过程不是一蹴而就的，应该不断得学习和完善，我目前也仅限于">
+<meta name="twitter:title" content="线性回归">
+<meta name="twitter:description" content="线性回归（linear regression）线性回归是线性模型的基本形式，也是监督学习常用的方法，试图通过属性的线性组合来进行预测的函数，基于tensorflow2.0，给出了较为简单的单输入，单输出的模型预测，具体的理论过程也可以参考周志华的机器学习，里面给出了公式.如果不会公式推导的话可以参考datawhale开源的南瓜书，里面的公式推导相当的详细 看了西瓜书较为简单的模型之后，我主要是应用">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/17/python/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/23/线性回归/">
 
 
 
 
 
-  <title>Python | YXJ‘ Blog</title>
+  <title>线性回归 | YXJ‘ Blog</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/python/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/线性回归/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YXJ">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python</h1>
+          <h1 class="post-title" itemprop="name headline">线性回归</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-17T22:28:25+08:00">
-                2019-05-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T21:23:11+08:00">
+                2019-07-23
               </time>
             
 
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-02T13:29:00+08:00">
-                2019-06-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-23T21:24:57+08:00">
+                2019-07-23
               </time>
             
           </span>
@@ -313,8 +313,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/17/python/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/17/python/" itemprop="commentCount"></span>
+                <a href="/2019/07/23/线性回归/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/23/线性回归/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2019/05/17/python/" class="leancloud_visitors" data-flag-title="Python">
+             <span id="/2019/07/23/线性回归/" class="leancloud_visitors" data-flag-title="线性回归">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  571
+                  950
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -389,17 +389,17 @@
       
 
       
-        <h3 id="我对python的理解"><a href="#我对python的理解" class="headerlink" title="我对python的理解"></a>我对python的理解</h3><p>关于python，我第一次听说应该是大一上的寒假，当时鼓吹python的人工智能和大数据，作为一个新兴的入口和行业吸引着无数的技术人去学习，这几年python的热度也是有增无减，它确实是一门入门简单的语言，但是它的进阶确实挺难的.python目前可以做爬虫啊，web开发，以及最热门的数据挖缺和机器学习</p>
-<p>python的学习过程不是一蹴而就的，应该不断得学习和完善，我目前也仅限于对所有语法有一定的了解，并没有在某个具体的项目实践过，但是python会是一门很好的语言，<strong>写脚本</strong>你会发现很有趣，可以帮助你做一些繁琐的事情. 我关注的许多大佬就是通过python进行编写一些有趣的脚本.<strong>如果时间充裕并且有想法的话我可以搬运一些源码拿来应用</strong>.</p>
-<h3 id="我的python学习"><a href="#我的python学习" class="headerlink" title="我的python学习"></a>我的python学习</h3><p>我主要是对python的语法进行了解,大家可以参考</p>
-<ul>
-<li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400" target="_blank" rel="noopener">廖雪峰的python教程</a>是很好的入门教程,方方面面都有,从入门到进阶,缺点就是纯文字,可能很多人觉得枯燥无味</li>
-<li><a href="https://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>不多说,圈里人基本都知道</li>
-<li><a href="https://docs.python.org/zh-cn/3/" target="_blank" rel="noopener">官方文档</a>官方中文文档,大佬们都力推</li>
-<li>还有一些书籍,我自己买的是python无师自通-专业程序员的养成一本黄皮书,书的质量一般,我就不推荐了,另外还有一些李笑来的github啊什么杂七杂八的,大家要是感兴趣可以私聊我.我会分享给大家</li>
-</ul>
-<p><u>现在我主要是通过极客时间订阅的专栏(一个Facebook大佬),许多人都推荐了,里面会有一些进阶的知识和项目应用,我也会在这边打卡学习</u></p>
-<h3 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h3><p>关于python我还是希望自己多学一点吧,毕竟现在研究生基本都是<strong>机器学习,数据挖掘</strong>什么的,python是一门很好的支持语言,我没有学过Java,但我还是很喜欢python这门语言:<strong>简洁优雅</strong></p>
+        <h3 id="线性回归（linear-regression）"><a href="#线性回归（linear-regression）" class="headerlink" title="线性回归（linear regression）"></a>线性回归（linear regression）</h3><p>线性回归是线性模型的基本形式，也是监督学习常用的方法，试图通过<strong>属性的线性组合来进行预测</strong>的函数，基于tensorflow2.0，给出了较为简单的单输入，单输出的模型预测，具体的理论过程也可以参考周志华的机器学习，里面给出了公式.如果不会公式推导的话可以参考datawhale开源的南瓜书，里面的公式推导相当的详细</p>
+<p>看了西瓜书较为简单的模型之后，我主要是应用tensorflow进行学习，目的就是争取掌握tensorflow的基本应用，因为就机器学习理论而言，肯定是存在巨大难度的，可以在读研期间多多学习</p>
+<p>线性回归的函数就是一次函数的形式：w*x+b，而损失函数则是<strong>采用均方差的最小二乘法</strong>，也就是预测值-实际值的平方和除以总共的数</p>
+<h3 id="基于tensorflow2-0的线性回归"><a href="#基于tensorflow2-0的线性回归" class="headerlink" title="基于tensorflow2.0的线性回归"></a>基于tensorflow2.0的线性回归</h3><p>关于tensorflow2.0的环境安装，我是在Linux系统下安装的jupter notebook并且配置了机器学习所需要的包</p>
+<p>下面我试着通过示例代码了解tensorflow的使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span>  numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">learing_data=<span class="number">0.01</span>             <span class="comment">#初次优化器的参数</span></span><br><span class="line">training_steps=<span class="number">1000</span>           <span class="comment">#训练次数</span></span><br><span class="line">display_steps=<span class="number">50</span></span><br><span class="line"></span><br><span class="line">X = np.array([<span class="number">3.3</span>,<span class="number">4.4</span>,<span class="number">5.5</span>,<span class="number">6.71</span>,<span class="number">6.93</span>,<span class="number">4.168</span>,<span class="number">9.779</span>,<span class="number">6.182</span>,<span class="number">7.59</span>,<span class="number">2.167</span>,</span><br><span class="line">              <span class="number">7.042</span>,<span class="number">10.791</span>,<span class="number">5.313</span>,<span class="number">7.997</span>,<span class="number">5.654</span>,<span class="number">9.27</span>,<span class="number">3.1</span>])</span><br><span class="line">Y = np.array([<span class="number">1.7</span>,<span class="number">2.76</span>,<span class="number">2.09</span>,<span class="number">3.19</span>,<span class="number">1.694</span>,<span class="number">1.573</span>,<span class="number">3.366</span>,<span class="number">2.596</span>,<span class="number">2.53</span>,<span class="number">1.221</span>,</span><br><span class="line">              <span class="number">2.827</span>,<span class="number">3.465</span>,<span class="number">1.65</span>,<span class="number">2.904</span>,<span class="number">2.42</span>,<span class="number">2.94</span>,<span class="number">1.3</span>])</span><br><span class="line">n_samples = X.shape[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">w=tf.Variable(np.random.randn,name=<span class="string">'weight'</span>)</span><br><span class="line">b=tf.Variable(np.random.ramdn,name=<span class="string">'bias'</span>)</span><br><span class="line"><span class="comment">#定义线性回归函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_regression</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> w*x+b</span><br><span class="line"><span class="comment">#定义损失函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mean_square</span><span class="params">(y_pred,y_true)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.reduce_sum(tf.pow(y_pred-y_true,<span class="number">2</span>))/n_samples</span><br><span class="line"></span><br><span class="line"><span class="comment">#初始化优化器</span></span><br><span class="line">optimizer=tf.optimizers.SGD(learing_data)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义优化过程</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_optimization</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">with</span>  tf.GradientTape <span class="keyword">as</span> g:</span><br><span class="line">        pred=linera_regression(X)     <span class="comment">#预测值</span></span><br><span class="line">        loss=mean_square(pred,Y)      <span class="comment">#计算损失函数</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#计算梯度</span></span><br><span class="line">        gradients=g.gradent(loss,[w,b])</span><br><span class="line">        <span class="comment">#更新梯度</span></span><br><span class="line">        optimizer.apply_gradients(zip(gradients,[w,b]))</span><br><span class="line">        </span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">1</span>,training_steps+<span class="number">1</span>):</span><br><span class="line">    run_optimzation()</span><br><span class="line">    <span class="keyword">if</span> step%display_steps==<span class="number">0</span>:</span><br><span class="line">        pred=linear_regression(X)</span><br><span class="line">        loss=mean_square(pred,Y)</span><br><span class="line">        print(<span class="string">"step: %i, loss: %f, W: %f, b: %f"</span> % (step, loss, W.numpy(), b.numpy()))</span><br><span class="line">        </span><br><span class="line">       </span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line"></span><br><span class="line">step: <span class="number">50</span>, loss: <span class="number">0.210631</span>, W: <span class="number">0.458940</span>, b: <span class="number">-0.670898</span></span><br><span class="line">step: <span class="number">100</span>, loss: <span class="number">0.195340</span>, W: <span class="number">0.446725</span>, b: <span class="number">-0.584301</span></span><br><span class="line">step: <span class="number">150</span>, loss: <span class="number">0.181797</span>, W: <span class="number">0.435230</span>, b: <span class="number">-0.502807</span></span><br><span class="line">step: <span class="number">200</span>, loss: <span class="number">0.169803</span>, W: <span class="number">0.424413</span>, b: <span class="number">-0.426115</span></span><br><span class="line">step: <span class="number">250</span>, loss: <span class="number">0.159181</span>, W: <span class="number">0.414232</span>, b: <span class="number">-0.353942</span></span><br><span class="line">step: <span class="number">300</span>, loss: <span class="number">0.149774</span>, W: <span class="number">0.404652</span>, b: <span class="number">-0.286021</span></span><br><span class="line">step: <span class="number">350</span>, loss: <span class="number">0.141443</span>, W: <span class="number">0.395636</span>, b: <span class="number">-0.222102</span></span><br><span class="line">step: <span class="number">400</span>, loss: <span class="number">0.134064</span>, W: <span class="number">0.387151</span>, b: <span class="number">-0.161949</span></span><br><span class="line">step: <span class="number">450</span>, loss: <span class="number">0.127530</span>, W: <span class="number">0.379167</span>, b: <span class="number">-0.105341</span></span><br><span class="line">step: <span class="number">500</span>, loss: <span class="number">0.121742</span>, W: <span class="number">0.371652</span>, b: <span class="number">-0.052068</span></span><br><span class="line">step: <span class="number">550</span>, loss: <span class="number">0.116617</span>, W: <span class="number">0.364581</span>, b: <span class="number">-0.001933</span></span><br><span class="line">step: <span class="number">600</span>, loss: <span class="number">0.112078</span>, W: <span class="number">0.357926</span>, b: <span class="number">0.045247</span></span><br><span class="line">step: <span class="number">650</span>, loss: <span class="number">0.108058</span>, W: <span class="number">0.351663</span>, b: <span class="number">0.089647</span></span><br><span class="line">step: <span class="number">700</span>, loss: <span class="number">0.104498</span>, W: <span class="number">0.345769</span>, b: <span class="number">0.131431</span></span><br><span class="line">step: <span class="number">750</span>, loss: <span class="number">0.101345</span>, W: <span class="number">0.340223</span>, b: <span class="number">0.170753</span></span><br><span class="line">step: <span class="number">800</span>, loss: <span class="number">0.098552</span>, W: <span class="number">0.335003</span>, b: <span class="number">0.207759</span></span><br><span class="line">step: <span class="number">850</span>, loss: <span class="number">0.096079</span>, W: <span class="number">0.330091</span>, b: <span class="number">0.242583</span></span><br><span class="line">step: <span class="number">900</span>, loss: <span class="number">0.093889</span>, W: <span class="number">0.325468</span>, b: <span class="number">0.275356</span></span><br><span class="line">step: <span class="number">950</span>, loss: <span class="number">0.091949</span>, W: <span class="number">0.321118</span>, b: <span class="number">0.306198</span></span><br><span class="line">step: <span class="number">1000</span>, loss: <span class="number">0.090231</span>, W: <span class="number">0.317024</span>, b: <span class="number">0.335223</span></span><br><span class="line">                </span><br><span class="line">plt.plot(X, Y, <span class="string">'ro'</span>, label=<span class="string">'Original data'</span>)</span><br><span class="line">plt.plot(X, np.array(W * X + b), label=<span class="string">'Fitted line'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>最后一段代码是通过matplot来展示的，其实可以发现真实的点离训练出来的预测函数很接近</p>
+<p>下面我总结一下本次代码中tensorflow函数的用法：</p>
+<p><strong>tf.reduce_sum</strong>就是求和，默认参数是[0,1]表示横轴相加纵轴相加的结果，类似与pandas的数据处理，设置参数之后是可以实现只相加横轴或者竖轴的</p>
+<p>optimizer是tensorflow中的优化器，可以通过SGD来设置初始值，通过<strong>apply_gardients</strong>来跟新梯度的值</p>
+<p><strong>计算梯度的函数则是 tf.GradientTape.gradient，本质其实是求偏导</strong></p>
 
       
     </div>
@@ -417,7 +417,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" <i class="fa fa-tag"> Python</a>
+            <a href="/tags/机器学习/" <i class="fa fa-tag"> 机器学习</a>
           
         </div>
       
@@ -430,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/16/数学问题/" rel="next" title="数学问题">
-                <i class="fa fa-chevron-left"></i> 数学问题
+              <a href="/2019/07/22/Python之并发编程/" rel="next" title="Python之并发编程">
+                <i class="fa fa-chevron-left"></i> Python之并发编程
               </a>
             
           </div>
@@ -439,10 +439,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/18/静态链表/" rel="prev" title="静态链表">
-                静态链表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -578,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#我对python的理解"><span class="nav-number">1.</span> <span class="nav-text">我对python的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我的python学习"><span class="nav-number">2.</span> <span class="nav-text">我的python学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展望"><span class="nav-number">3.</span> <span class="nav-text">展望</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线性回归（linear-regression）"><span class="nav-number">1.</span> <span class="nav-text">线性回归（linear regression）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于tensorflow2-0的线性回归"><span class="nav-number">2.</span> <span class="nav-text">基于tensorflow2.0的线性回归</span></a></li></ol></div>
             
 
           </div>
