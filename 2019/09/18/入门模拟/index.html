@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简单模拟PAT1042题目的大意就是给出54个数分别对应s1-s13等等,然后给出要交换的序列,注意是将顺序序列上的数移到给出数的位置,故应该是end[next[i]]=start[i].做算法题始终不能忘记初始化这个重要的过程,然后关于映射的关系如何找也是要积累和细心查找. 12345678910111213141516171819202122232425262728#include&amp;lt;cs">
+<meta name="keywords" content="算法笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="入门模拟">
+<meta property="og:url" content="http://yoursite.com/2019/09/18/入门模拟/index.html">
+<meta property="og:site_name" content="YXJ‘ Blog">
+<meta property="og:description" content="简单模拟PAT1042题目的大意就是给出54个数分别对应s1-s13等等,然后给出要交换的序列,注意是将顺序序列上的数移到给出数的位置,故应该是end[next[i]]=start[i].做算法题始终不能忘记初始化这个重要的过程,然后关于映射的关系如何找也是要积累和细心查找. 12345678910111213141516171819202122232425262728#include&amp;lt;cs">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-18T12:13:43.474Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="入门模拟">
+<meta name="twitter:description" content="简单模拟PAT1042题目的大意就是给出54个数分别对应s1-s13等等,然后给出要交换的序列,注意是将顺序序列上的数移到给出数的位置,故应该是end[next[i]]=start[i].做算法题始终不能忘记初始化这个重要的过程,然后关于映射的关系如何找也是要积累和细心查找. 12345678910111213141516171819202122232425262728#include&amp;lt;cs">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/18/入门模拟/">
+
+
+
+
+
+  <title>入门模拟 | YXJ‘ Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YXJ‘ Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">每一个程序员都有一颗开源的心</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/入门模拟/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YXJ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YXJ‘ Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">入门模拟</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-18T20:12:25+08:00">
+                2019-09-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-18T20:13:43+08:00">
+                2019-09-18
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/18/入门模拟/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/18/入门模拟/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/18/入门模拟/" class="leancloud_visitors" data-flag-title="入门模拟">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="简单模拟"><a href="#简单模拟" class="headerlink" title="简单模拟"></a>简单模拟</h3><h4 id="PAT1042"><a href="#PAT1042" class="headerlink" title="PAT1042"></a>PAT1042</h4><p>题目的大意就是给出54个数分别对应s1-s13等等,然后给出要交换的序列,<strong>注意是将顺序序列上的数移到给出数的位置</strong>,故应该是end[next[i]]=start[i].做算法题始终不能忘记<strong>初始化</strong>这个重要的过程,然后关于映射的关系如何找也是要积累和细心查找.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> mp[<span class="number">5</span>]=&#123;<span class="string">'S'</span>,<span class="string">'H'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'J'</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">54</span>;</span><br><span class="line">    <span class="keyword">int</span> start[maxn+<span class="number">1</span>],next[maxn+<span class="number">1</span>],end[maxn+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=maxn;i++)</span><br><span class="line">      start[i]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=maxn;i++)</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;next[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=maxn;j++)</span><br><span class="line">          end[next[j]]=start[j];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=maxn;j++)</span><br><span class="line">          start[j]=end[j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=maxn;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i!=<span class="number">1</span>)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c%d"</span>,mp[(start[i]<span class="number">-1</span>)/<span class="number">13</span>],(start[i]<span class="number">-1</span>)%<span class="number">13</span>+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PAT1046"><a href="#PAT1046" class="headerlink" title="PAT1046"></a>PAT1046</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805435700199424" target="_blank" rel="noopener">PAT1046</a>,题目的意思是给出i到i+1的距离数组,给出起点和终点,求最短路径,这道题目说实话我刚开始的想法就是遍历求和,参考循环队列的遍历求两个和比较大小,事实证明并不可行,这样极端情况下是时间复杂度很高的,根本没办法通过测试的.参考晴神的代码豁然开朗,<strong>通过dis来存储路径和进行预处理</strong>来减少时间复杂度,之后求和相减就是另外条路径的和,取较小值输出即可.<strong>求和的预处理思想</strong>非常值得借鉴.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">int</span> dis[n+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">        sum+=temp;</span><br><span class="line">        dis[i]=sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> start,end;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;start,&amp;end);</span><br><span class="line">        <span class="keyword">if</span>(start&gt;end)</span><br><span class="line">          swap(start,end);</span><br><span class="line">        <span class="keyword">int</span> t=dis[end<span class="number">-1</span>]-dis[start<span class="number">-1</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,min(t,sum-t));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PAT1065"><a href="#PAT1065" class="headerlink" title="PAT1065"></a>PAT1065</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805406352654336" target="_blank" rel="noopener">PAT1065</a>,就是大数比较大小,需要注意的是long long int型数的取值范围是<strong>开区间-2^63到2^63</strong>,注意点如下:</p>
+<ol>
+<li>首先sum必须存储到longlongint中才可以比较,不然两个数相加容易出错</li>
+<li>考虑到溢出的情况,特别注意的是<strong>sum可能等于0(最后一个检测点就是如此</strong></li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> a,b,c;</span><br><span class="line">        <span class="keyword">bool</span> flag;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%ld%ld%ld"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> sum=a+b;</span><br><span class="line">        <span class="keyword">if</span>(a&gt;<span class="number">0</span>&amp;&amp;b&gt;<span class="number">0</span>&amp;&amp;sum&lt;=<span class="number">0</span>)</span><br><span class="line">          flag=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a&lt;<span class="number">0</span>&amp;&amp;b&lt;<span class="number">0</span>&amp;&amp;sum&gt;=<span class="number">0</span>)</span><br><span class="line">          flag=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(sum&gt;c)</span><br><span class="line">          flag=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">          flag=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(flag==<span class="literal">true</span>)</span><br><span class="line">           <span class="built_in">printf</span>(<span class="string">"Case #%d: true\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">           <span class="built_in">printf</span>(<span class="string">"Case #%d: false\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PAT1002"><a href="#PAT1002" class="headerlink" title="PAT1002"></a>PAT1002</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805526272000000" target="_blank" rel="noopener">PAT1002</a>,题目并不是很难,主要是要理解题目的意思,就是给出两个多项式,要我们求两个多项式的和</p>
+<p>注意点:</p>
+<ol>
+<li>首先是用一个一维数组来存储每个项目对应的系数(应该定义为float类型),a[i]即代表幂次i的系数</li>
+<li>由于要输出总共的项数,故定义一个计数cnt,当系数不为0是,cnt自加即可</li>
+<li>由于输出是幂次高的在前,故<strong>应该从后往前遍历</strong></li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> a[<span class="number">1001</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> m,n,t;</span><br><span class="line">    <span class="keyword">float</span> num;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%f"</span>,&amp;t,&amp;num);</span><br><span class="line">        a[t]+=num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%f"</span>,&amp;t,&amp;num);</span><br><span class="line">        a[t]+=num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1001</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="keyword">if</span>(a[i]!=<span class="number">0</span>)</span><br><span class="line">         cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,cnt);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1000</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=<span class="number">0.0</span>)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">" %d %.1f"</span>,i,a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PAT1009"><a href="#PAT1009" class="headerlink" title="PAT1009"></a>PAT1009</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805509540921344" target="_blank" rel="noopener">PAT1009</a>,关键是理解多项式乘法的意义,先把第一个多项式存储下来,然后第二个多项式的<strong>每一项与第一个多项式相乘(指数相加,系数相乘),然后叠加到ans数组</strong>,之后输出即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,cnt=<span class="number">0</span>,index;</span><br><span class="line">    <span class="keyword">double</span> t,a[<span class="number">1001</span>]=&#123;<span class="number">0.0</span>&#125;,ans[<span class="number">2001</span>]=&#123;<span class="number">0.0</span>&#125;;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %lf"</span>,&amp;index,&amp;t);</span><br><span class="line">        a[index]=t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %lf"</span>,&amp;index,&amp;t);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1001</span>;j++)</span><br><span class="line">           ans[j+index]+=a[j]*t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2001</span>;i++)</span><br><span class="line">       <span class="keyword">if</span>(ans[i]!=<span class="number">0.0</span>)</span><br><span class="line">         cnt++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,cnt);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2000</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(ans[i]!=<span class="number">0.0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %d %.1f"</span>,i,ans[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><p>进制转换一般采用两步,先是将<strong>P进制的数转化成十进制</strong>,<strong>之后将十进制数转换成Q进制</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> y=<span class="number">0</span>,product=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(x!=<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    y=y+(x%<span class="number">10</span>)*product;</span><br><span class="line">    x=x/<span class="number">10</span>;</span><br><span class="line">    product*=P;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将十进制数转化为Q进制数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> z[<span class="number">40</span>],num=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">&#123;</span><br><span class="line">    z[num++]=y%Q;</span><br><span class="line">    y/=Q;</span><br><span class="line">&#125;<span class="keyword">while</span>(y!=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>z[num-1]到z[0]应该从<strong>后往前输出</strong>即为转化后的结果,用<strong>do while</strong>语句代替while语句是为了避免十进制数恰好为0的情况.</p>
+<h4 id="PAT1019"><a href="#PAT1019" class="headerlink" title="PAT1019"></a>PAT1019</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805487143337984" target="_blank" rel="noopener">PAT1019</a>,是简单题,题目的大意是给定<strong>十进制数(decimal system)</strong>和进制数,要我们转换成该进制数,并且判断该进制数是否是回文串.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> z[<span class="number">40</span>],num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">while</span>(n!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        z[num++]=n%m;</span><br><span class="line">        n/=m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> flag=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num/<span class="number">2</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(z[i]!=z[num-i<span class="number">-1</span>])</span><br><span class="line">          flag=<span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag==<span class="literal">false</span>)</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=num<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,z[i]);</span><br><span class="line">        <span class="keyword">if</span>(i!=<span class="number">0</span>)  <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PAT1027"><a href="#PAT1027" class="headerlink" title="PAT1027"></a>PAT1027</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805470349344768" target="_blank" rel="noopener">PAT1027</a>,题目的大意是<strong>10进制数(redix)</strong>代表rgb,分别转化成13进制数并且输出,首先13进制数中出现了ABC,所以定义数组之后通过索引是一种很好的方法.由于转换出来的十三进制数只有两个,<strong>可以通过一个/,一个整除的手段减少代码量</strong>.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> redix[<span class="number">13</span>]=&#123;</span><br><span class="line">        <span class="string">'0'</span>,<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'4'</span>,<span class="string">'5'</span>,<span class="string">'6'</span>,<span class="string">'7'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>,<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">int</span> r,g,b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;r,&amp;g,&amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"#"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c%c"</span>,redix[r/<span class="number">13</span>],redix[r%<span class="number">13</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c%c"</span>,redix[g/<span class="number">13</span>],redix[g%<span class="number">13</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c%c"</span>,redix[b/<span class="number">13</span>],redix[b%<span class="number">13</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PAT1058"><a href="#PAT1058" class="headerlink" title="PAT1058"></a>PAT1058</h4><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805416519647232" target="_blank" rel="noopener">PAT1058</a>也是一道很有意思的题目,第一次如果通过传统的方法去做是发现自己有三个检测点没办法通过,拿到了14的分数.之后我参考了柳神的代码,发现她的思路很好,而且代码也较为简练.</p>
+<p>题目的主要意思是要求我们求出两个给定的数的和,但是存在<strong>进位</strong>的情况.没办法通过的检测点应该是最大的那个数或者和溢出了.柳神的代码通过先求出他们两个的和,之后通过进制处理之后输出</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a, b, c, d, e, f;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld.%lld.%lld %lld.%lld.%lld"</span>, &amp;a, &amp;b, &amp;c, &amp;d, &amp;e, &amp;f);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> num = c + b * <span class="number">29</span> + a * <span class="number">29</span> * <span class="number">17</span> + f + e * <span class="number">29</span> + d * <span class="number">29</span> * <span class="number">17</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> g = num / (<span class="number">17</span> * <span class="number">29</span>);</span><br><span class="line">    num = num % (<span class="number">17</span> * <span class="number">29</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld.%lld.%lld"</span>, g, num / <span class="number">29</span>, num % <span class="number">29</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h3><p>字符串的数据类型在iostream的头文件中有定义,<strong>注意要使用using namespace std</strong>,可以通过length的方法来求得字符串的长度</p>
+<h4 id="PAT1035"><a href="#PAT1035" class="headerlink" title="PAT1035"></a>PAT1035</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805454989803520" target="_blank" rel="noopener">PAT1035</a>,题目的主要意思是进行字符替代,如果没有替代则需要输出没有替代的情况(特别注意单复数的形式,有一个间断点就是复数情况,三分).如果对修改的字符串,则指出修改的字符串的个数.通过存储在vector中得以解决.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; v;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">string</span> s1,s2;</span><br><span class="line">        <span class="keyword">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;s1&gt;&gt;s2;</span><br><span class="line">        <span class="keyword">int</span> len=s2.length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">switch</span>(s2[j]) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'1'</span> : s2[j] = <span class="string">'@'</span>; flag = <span class="number">1</span>; <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'0'</span> : s2[j] = <span class="string">'%'</span>; flag = <span class="number">1</span>; <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'l'</span> : s2[j] = <span class="string">'L'</span>; flag = <span class="number">1</span>; <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'O'</span> : s2[j] = <span class="string">'o'</span>; flag = <span class="number">1</span>; <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> temp=s1+<span class="string">" "</span>+s2;</span><br><span class="line">            v.push_back(temp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt=v.size();</span><br><span class="line">    <span class="keyword">if</span>(cnt!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,cnt);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cnt;i++)</span><br><span class="line">          <span class="built_in">cout</span>&lt;&lt;v[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"There is 1 account and no account is modified"</span>);</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"There are %d accounts and no account is modified"</span>,n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PAT1077"><a href="#PAT1077" class="headerlink" title="PAT1077"></a>PAT1077</h4><p>题目大意就是要我们求字符串倒序的最大公共部分,先通过reverse函数对输入的字符串进行处理,然后通过ans字符串和输入字符串进行截取.<strong>特别注意getlin函数是获取一行的输入,但是在scanf  n的过程中要把\n也吸收掉,不然就会无法通过测试</strong>.substr是字符串的切割操作,用切割出来的字符串代替子串.    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d\n"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">string</span> ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">string</span> s;</span><br><span class="line">        getline(<span class="built_in">cin</span>,s);</span><br><span class="line">        <span class="keyword">int</span> len=s.length();</span><br><span class="line">        reverse(s.begin(),s.end());</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans=s;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> anslen=ans.length();</span><br><span class="line">            <span class="comment">//if(anslen&gt;len) swap(ans,s);</span></span><br><span class="line">            <span class="keyword">int</span> minlen=min(len,anslen);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;minlen;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans[j]!=s[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    ans=ans.substr(<span class="number">0</span>,j);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    reverse(ans.begin(),ans.end());</span><br><span class="line">    <span class="keyword">if</span>(ans.length()==<span class="number">0</span>)</span><br><span class="line">      ans=<span class="string">"nai"</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法笔记/" <i class="fa fa-tag"> 算法笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/23/线性回归/" rel="next" title="线性回归">
+                <i class="fa fa-chevron-left"></i> 线性回归
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">YXJ</p>
+              <p class="site-description motion-element" itemprop="description">双非电信专业在读，准备跨考计算机</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yexiangjie" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单模拟"><span class="nav-number">1.</span> <span class="nav-text">简单模拟</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1042"><span class="nav-number">1.1.</span> <span class="nav-text">PAT1042</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1046"><span class="nav-number">1.2.</span> <span class="nav-text">PAT1046</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1065"><span class="nav-number">1.3.</span> <span class="nav-text">PAT1065</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1002"><span class="nav-number">1.4.</span> <span class="nav-text">PAT1002</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1009"><span class="nav-number">1.5.</span> <span class="nav-text">PAT1009</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进制转换"><span class="nav-number">2.</span> <span class="nav-text">进制转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1019"><span class="nav-number">2.1.</span> <span class="nav-text">PAT1019</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1027"><span class="nav-number">2.2.</span> <span class="nav-text">PAT1027</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1058"><span class="nav-number">2.3.</span> <span class="nav-text">PAT1058</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串处理"><span class="nav-number">3.</span> <span class="nav-text">字符串处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1035"><span class="nav-number">3.1.</span> <span class="nav-text">PAT1035</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PAT1077"><span class="nav-number">3.2.</span> <span class="nav-text">PAT1077</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YXJ</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">43.5k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      你是来访的第
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位小伙伴
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问次数：
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'UMUmLnevvRG3PCofryYlOQL6-gzGzoHsz',
+        appKey: 'jG394Hrdsa3j0OeIN2vFF25s',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("UMUmLnevvRG3PCofryYlOQL6-gzGzoHsz", "jG394Hrdsa3j0OeIN2vFF25s");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
