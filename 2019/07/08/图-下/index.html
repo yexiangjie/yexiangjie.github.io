@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="YXJ‘ Blog">
 <meta property="og:description" content="本篇博客主要介绍图剩下的三种应用,由于在PAT中没有出现对应的习题,但一般都是数据结构跟算法所考察的知识点 最小生成树最小生成树的定义主要是在无向图中求得一颗能够拥有图中所有顶点并且满足边权之和最小的树,并且拥有下面的性质  边数小于顶点数减一,树内一定无环 给定图的最小生成树可以不唯一,但是边权和一定唯一 一般给定根节点  最小生成树主要介绍两种算法,主要是prim算法和kruskal算法,两种">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T09:37:14.983Z">
+<meta property="og:updated_time" content="2019-11-28T12:57:14.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图(下)">
 <meta name="twitter:description" content="本篇博客主要介绍图剩下的三种应用,由于在PAT中没有出现对应的习题,但一般都是数据结构跟算法所考察的知识点 最小生成树最小生成树的定义主要是在无向图中求得一颗能够拥有图中所有顶点并且满足边权之和最小的树,并且拥有下面的性质  边数小于顶点数减一,树内一定无环 给定图的最小生成树可以不唯一,但是边权和一定唯一 一般给定根节点  最小生成树主要介绍两种算法,主要是prim算法和kruskal算法,两种">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-12T17:37:14+08:00">
-                2019-07-12
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-28T20:57:14+08:00">
+                2019-11-28
               </time>
             
           </span>
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  917
+                  1.3k
                 </span>
               
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -406,7 +406,9 @@
 <h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3><p>拓扑排序是基于有向无环图的,把有序无环图排成一个序列</p>
 <p>下面直接给出算法:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[MAXV]</span><br><span class="line"><span class="keyword">int</span> n,m,indegree[MAXV];  <span class="comment">//定义一个入读数组</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">topologicalsort</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;   <span class="comment">//记录顶点个数</span></span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(indegree[i]==<span class="number">0</span>)</span><br><span class="line">            q.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u=q.front();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,u);</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G[u].size;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> v=G[u][i];</span><br><span class="line">            indegree[v]--;</span><br><span class="line">            <span class="keyword">if</span>(indegree[v]==<span class="number">0</span>)</span><br><span class="line">                q.push(v);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//G[u].clear();    清空顶点u的所有出边,如果有必要</span></span><br><span class="line">        num++;       <span class="comment">//加入拓扑排序的顶点+1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(num==n)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">//如果加入拓扑排序的顶点为n,说明排序成功,为有向无环图,反之则失败,图中有环</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="拓扑排序的实例"><a href="#拓扑排序的实例" class="headerlink" title="拓扑排序的实例"></a>拓扑排序的实例</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805343043829760" target="_blank" rel="noopener">PAT1146</a>,题目的大意就是给出一个图和一些序列,判断序列是否是拓扑排序,其实很简单,主要就是就是收集点,判断其入度是否为0,然后如果不为0,就证明其不是拓扑排序并输出.</p>
+<p>需要注意的点就是每轮检验都把<strong>图的入度数组赋值给临时的数组</strong>,图就是原来的那副,但是序列有多个,不能修改原来的入度数组,之后就是通过<strong>flag的标志</strong>来决定是否输出空格</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> G[<span class="number">1010</span>][<span class="number">1010</span>],indegree[<span class="number">1010</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fill(G[<span class="number">0</span>],G[<span class="number">0</span>]+<span class="number">1010</span>*<span class="number">1010</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> m,k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t1,t2;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;t1,&amp;t2);</span><br><span class="line">        G[t1][t2]=<span class="number">1</span>;</span><br><span class="line">        indegree[t2]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</span><br><span class="line">    <span class="keyword">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">bool</span> judge=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> tin[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)      <span class="comment">//因为每次都判断一次会修改indegree的值,故每次都要重新赋值</span></span><br><span class="line">            tin[j]=indegree[j];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)    </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> temp;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">            <span class="keyword">if</span>(tin[temp]!=<span class="number">0</span>)</span><br><span class="line">                judge=<span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(G[temp][k]==<span class="number">1</span>)</span><br><span class="line">                   tin[k]--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(judge==<span class="literal">false</span>)</span><br><span class="line">           <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(flag==<span class="literal">true</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,i);</span><br><span class="line">        flag=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -528,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -584,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小生成树"><span class="nav-number">1.</span> <span class="nav-text">最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#prim算法"><span class="nav-number">1.1.</span> <span class="nav-text">prim算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#kruskal算法"><span class="nav-number">1.2.</span> <span class="nav-text">kruskal算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑排序"><span class="nav-number">2.</span> <span class="nav-text">拓扑排序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小生成树"><span class="nav-number">1.</span> <span class="nav-text">最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#prim算法"><span class="nav-number">1.1.</span> <span class="nav-text">prim算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#kruskal算法"><span class="nav-number">1.2.</span> <span class="nav-text">kruskal算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑排序"><span class="nav-number">2.</span> <span class="nav-text">拓扑排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑排序的实例"><span class="nav-number">2.1.</span> <span class="nav-text">拓扑排序的实例</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -618,7 +620,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">53.2k</span>
+    <span title="Site words total count">53.8k</span>
   
 </div>
 
