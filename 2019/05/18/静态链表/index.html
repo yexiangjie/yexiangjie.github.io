@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 静态链表的实现原理是hasn散列,建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; PAT1052参考PAT1052,题目大">
+<meta name="description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; PAT1052参考PAT1052,题目大意是给出一个静态链表,要求我们根据">
 <meta name="keywords" content="算法笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="静态链表">
 <meta property="og:url" content="http://yoursite.com/2019/05/18/静态链表/index.html">
 <meta property="og:site_name" content="YXJ‘ Blog">
-<meta property="og:description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 静态链表的实现原理是hasn散列,建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; PAT1052参考PAT1052,题目大">
+<meta property="og:description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; PAT1052参考PAT1052,题目大意是给出一个静态链表,要求我们根据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-16T10:27:18.099Z">
+<meta property="og:updated_time" content="2019-12-06T10:31:24.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="静态链表">
-<meta name="twitter:description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 静态链表的实现原理是hasn散列,建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; PAT1052参考PAT1052,题目大">
+<meta name="twitter:description" content="静态链表学过C语言的人基本都知道链表就是通过指针来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代 建立结构体数组,数组的下标直接表示节点地址, 12345struct Node&amp;#123;    typename data;    int next;&amp;#125;node[size]; PAT1052参考PAT1052,题目大意是给出一个静态链表,要求我们根据">
 
 
 
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-16T18:27:18+08:00">
-                2019-10-16
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-06T18:31:24+08:00">
+                2019-12-06
               </time>
             
           </span>
@@ -390,7 +390,7 @@
 
       
         <h3 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h3><p>学过C语言的人基本都知道链表就是通过<strong>指针</strong>来建立节点之间的关系,那种称之为动态链表,而对于有些简单的问题,我们可以用静态链表来替代</p>
-<p>静态链表的实现原理是<strong>hasn散列</strong>,建立结构体数组,数组的<u>下标</u>直接表示<u><strong>节点地址</strong></u>,</p>
+<p>建立结构体数组,数组的<u>下标</u>直接表示<u><strong>节点地址</strong></u>,</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">typename</span> data;</span><br><span class="line">    <span class="keyword">int</span> next;</span><br><span class="line">&#125;node[size];</span><br></pre></td></tr></table></figure>
 <h4 id="PAT1052"><a href="#PAT1052" class="headerlink" title="PAT1052"></a>PAT1052</h4><p>参考<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805425780670464" target="_blank" rel="noopener">PAT1052</a>,题目大意是给出一个静态链表,要求我们根据节点的值来对链表进行排序.</p>
 <p>定义一个结构体,其中带有bool变量flag代表该节点是否出现,<strong>遍历一遍链表对出现过的节点置true</strong>,之后就对链表进行排序,没有出现过的排序过程就到后面,之后对链表遍历输出即可.要注意链表中无节点的情况进行特别判别.</p>
